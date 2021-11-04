@@ -11,52 +11,47 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="notification is-primary">
+    <header class="header">
         Header
     </header>
 
     <!-- flex containers -->
     <div id="main-container" class="tile is-ancestor">
         <div class="tile is-4 is-vertical is-parent">
-          <div class="tile is-child box">
+          <div id="form-area-img" class="tile is-child box">
 
               <!-- input form -->
-            <div class="field">
-                <label class="label">Label</label>
-                <div class="control">
-                  <input id="input-city" class="input" type="text" placeholder="Text input">
-                  <button id="submit-btn" class="button">Button</button>
+            <div id="form-field" class="field">
+                <label id="ipt-lbl"class="label">Label</label>
+                <div id="input-btn-field" class="control">
+                  <input id="ipt-depart" class="input" type="text" placeholder="Enter a depature city">
+                  <input id="ipt-dest" class="input" type="text" placeholder="Enter a destination city">
+                  <button id="submit-btn" class="button">Submit</button>
                 </div>
-                <p class="help">This is a help text</p>
+                <p class="help">Text with any special instructions</p>
               </div>
           </div>
         </div>
 
         <!-- flex containers -->
         <div class="tile is-parent">
-          <div class="tile is-child box ">
+          <div id="results-container"class="tile is-child box ">
               <!-- results area -->
-            <h1 class="title has-text-centered">Flights</h1>
-            <div class="level has-background-light">
-                <p class="level-item has-text-centered">
-                Date
-                </p>
-                <p class="level-item has-text-centered">
-                Airline
-                </p>
-                <p class="level-item has-text-centered">
-                 Price
-                </p>
+            <h1 id="results-title" class="title has-text-centered">Flights</h1>
+            <div id="results-header-txt" class="level">
+                <p class="level-item has-text-centered">Date</p>
+                <p class="level-item has-text-centered">Airline</p>
+                <p class="level-item has-text-centered">Price</p>
             </div>
             <div id="results" class="columns has-text-centered">
-                <div id="date" class="column has-background-warning">
-                  
+                <div id="date" class="column">
+                  some text
                 </div>
                 <div id="airline" class="column">
-                  
+                  some text
                 </div>
                 <div id="price" class="column">
-                  
+                  some text
                 </div>
             <!-- <ul id="ul-results"></ul> -->
           </div>

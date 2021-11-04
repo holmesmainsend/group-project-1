@@ -1,3 +1,44 @@
+body{
+    background-color: #b6c5c2;
+    height: 1500px;
+}
+
+header{
+    background-color: #b6c5c2;
+    height: 50px;
+    text-align:center;
+    font-size: 30px;
+}
+
 #main-container{
     height: 600px;
+}
+
+#form-field{
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-evenly;
+}
+
+#ipt-lbl{
+    font-size: 30px;
+}
+
+
+#input-btn-field{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-evenly;
+}
+
+#form-area-img{
+    background-image: url("../images/passportstamps.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#results-container, #results-header-txt{
+    background-color: #8299a8;
 }
