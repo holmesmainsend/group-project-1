@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header class="notification is-primary">
+        Header
+    </header>
+
+    <!-- flex containers -->
+    <div class="tile is-ancestor">
+        <div class="tile is-4 is-vertical is-parent">
+          <div class="tile is-child box">
+
+              <!-- input form -->
+            <div class="field">
+                <label class="label">Label</label>
+                <div class="control">
+                  <input id="input-city" class="input" type="text" placeholder="Text input">
+                  <button id="submit-btn" class="button">Button</button>
+                </div>
+                <p class="help">This is a help text</p>
+              </div>
+          </div>
+        </div>
+
+        <!-- flex containers -->
+        <div class="tile is-parent">
+          <div class="tile is-child box ">
+              <!-- results area -->
+            <h1 class="title has-text-centered">Flights</h1>
+            <div class="level has-background-light">
+                <p class="level-item has-text-centered">
+                Date
+                </p>
+                <p class="level-item has-text-centered">
+                Airline
+                </p>
+                <p class="level-item has-text-centered">
+                 Price
+                </p>
+            </div>
+            <div id="results" class="columns has-text-centered">
+                <div id="date" class="column has-background-warning">
+                  
+                </div>
+                <div id="airline" class="column">
+                  
+                </div>
+                <div id="price" class="column">
+                  
+                </div>
+            <!-- <ul id="ul-results"></ul> -->
+          </div>
+        </div>
+      </div>
+</body>
+<script src="./script.js"></script>
+</html>
