@@ -1,6 +1,9 @@
 body{
     background-color: #b6c5c2;
-    height: 1500px;
+    height: 1000px;
+    background-image: url("../images/passportstamps.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 header{
@@ -33,12 +36,17 @@ header{
     justify-content: space-evenly;
 }
 
-#form-area-img{
-    background-image: url("../images/passportstamps.jpg");
-    background-size: cover;
-    background-position: center;
+#form-area-img, #results-container, #results-header-txt{
+    background-color: rgba(130, 153, 168, 0);
+    font-weight: bold;
 }
 
-#results-container, #results-header-txt{
+#results-header-text, p{
+    font-size: 25px;
+    text-decoration: underline;
+}
+
+ #results{
     background-color: #8299a8;
+    
 }
