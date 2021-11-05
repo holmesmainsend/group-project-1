@@ -41,7 +41,7 @@ header{
     font-weight: bold;
 }
 
-#results-header-text, p{
+#results-header-text p{
     font-size: 25px;
     text-decoration: underline;
 }
@@ -50,3 +50,15 @@ header{
     background-color: #8299a8;
     
 }
+
+.dropdown-item{
+font-weight: normal;
+}
+
+#dropdown-toggle {
+    display: none;
+  }
+  
+  #dropdown-toggle:checked ~ #dropdown-menu {
+    display: block;
+  }
