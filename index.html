@@ -18,43 +18,35 @@
     <!-- flex containers -->
     <div id="main-container" class="tile is-ancestor">
         <div class="tile is-4 is-vertical is-parent">
-          <div id="form-area-img" class="tile is-child box">
+          <div id="form-area" class="tile is-child box">
 
               <!-- input form -->
             <div id="form-field" class="field">
-                <label id="ipt-lbl"class="label">Label</label>
-                <div id="input-btn-field" class="control">
-                  <input id="ipt-depart" class="input" type="text" placeholder="Enter a Country">
-                  <input id="ipt-dest" class="input" type="text" placeholder="Enter a destination city">
-                  <input id="ipt-dest" class="input" type="text" placeholder="Enter a year">
-                  <div class="dropdown">
-                    <div class="dropdown-trigger">
-                      <input class="input" aria-haspopup="true" aria-controls="dropdown-menu"></input>
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                      <div class="dropdown-content">
-                        <a href="#" class="dropdown-item">
-                          Dropdown item
-                        </a>
-                        <a class="dropdown-item">
-                          Other dropdown item
-                        </a>
-                        <a href="#" class="dropdown-item is-active">
-                          Active dropdown item
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          Other dropdown item
-                        </a>
-                        <hr class="dropdown-divider">
-                        <a href="#" class="dropdown-item">
-                          With a divider
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                <label id="ipt-lbl"class="label">Search for Holidays</label>
+                <div id="input-field" class="control">
+                  <input id="ipt-country" class="input" type="text" placeholder="Enter a Country">
+                  <input id="ipt-year" class="input" type="text" placeholder="Enter a year">
+                  <label for="months">Choose a month:</label>
+                  <select id="months" name="months" class="dropdown-content">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                  </select>
                   <button id="submit-btn" class="button">Submit</button>
                 </div>
-                <p class="help">Text with any special instructions</p>
+              </div>
+              <div id="currency-field" class="field">
+                <label id="ipt-lbl"class="label">Currency Exchange Rate</label>
+                <div id="input-field" class="control"></div>
               </div>
           </div>
         </div>
@@ -63,11 +55,11 @@
         <div class="tile is-parent">
           <div id="results-container"class="tile is-child box ">
               <!-- results area -->
-            <h1 id="results-title" class="title has-text-centered">Flights</h1>
+            <h1 id="results-title" class="title has-text-centered">Holidays</h1>
             <div id="results-header-txt" class="level">
                 <p class="level-item has-text-centered">Date</p>
-                <p class="level-item has-text-centered">Airline</p>
-                <p class="level-item has-text-centered">Price</p>
+                <p class="level-item has-text-centered">Holiday Name</p>
+                <p class="level-item has-text-centered">Description</p>
             </div>
             <div id="results" class="columns has-text-centered">
                 <div id="date" class="column">
@@ -84,9 +76,9 @@
         </div>
       </div>
 </body>
-<script src="./script.js"></script>
+<!-- <script src="./script.js"></script> -->
  <!-- test script file for element functionality -->
 
  <script src="./scriptfileLF.js"></script>
 
-</html>drop
+</html>

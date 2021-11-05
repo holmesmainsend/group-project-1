@@ -17,28 +17,35 @@ header{
     height: 600px;
 }
 
-#form-field{
+#form-field, #currency-area{
     display: flex;
     flex-direction: column;
     height: 300px;
+    width: 200px;
     justify-content: space-evenly;
 }
 
 #ipt-lbl{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 
-#input-btn-field{
+#input-field, #currency-container{
     display: flex;
     flex-direction: column;
     height: 200px;
     justify-content: space-evenly;
 }
 
-#form-area-img, #results-container, #results-header-txt{
-    background-color: rgba(130, 153, 168, 0);
+#form-area, #results-container, #results-header-txt{
+    /* background-color: rgba(130, 153, 168, 0); */
     font-weight: bold;
+}
+
+#form-area{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #results-header-text p{
@@ -51,14 +58,5 @@ header{
     
 }
 
-.dropdown-item{
-font-weight: normal;
-}
 
-#dropdown-toggle {
-    display: none;
-  }
-  
-  #dropdown-toggle:checked ~ #dropdown-menu {
-    display: block;
-  }
+
