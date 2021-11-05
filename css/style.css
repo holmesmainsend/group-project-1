@@ -17,25 +17,36 @@ header{
     height: 600px;
 }
 
-#form-field, #currency-area{
+#form-field, #currency-field{
     display: flex;
     flex-direction: column;
     height: 300px;
-    width: 200px;
-    justify-content: space-evenly;
+    width: 300px;
+    padding: 20px;
+    justify-content: start;
 }
 
-#ipt-lbl{
+#currency-field{
+    height: 150px;
+}
+#currency-lbl, #ipt-lbl{
     font-size: 20px;
 }
 
 
-#input-field, #currency-container{
+#input-field, #currency-display{
     display: flex;
     flex-direction: column;
     height: 200px;
     justify-content: space-evenly;
 }
+
+#currency-display{
+    border-style: solid;
+    border-color: #b6c5c2;
+    height: 100px;
+}
+
 
 #form-area, #results-container, #results-header-txt{
     /* background-color: rgba(130, 153, 168, 0); */
