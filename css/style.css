@@ -20,15 +20,13 @@ header{
     height: 600px;
 }
 
-#form-field, #currency-field{
+#form-field, #currency-field, #prev-searches-field{
     display: flex;
     flex-direction: column;
     height: 300px;
     width: 300px;
     padding: 20px;
     justify-content: start;
-    position: -webkit-sticky;
-    position: sticky;
     top: 30px;
 }
 
@@ -43,52 +41,35 @@ header{
     margin-bottom: 25px;
 }
 
-#input-field, #currency-display{
+#input-field, #currency-display, #prev-searches-display{
     display: flex;
     flex-direction: column;
     height: 200px;
     justify-content: space-evenly;
 }
 
-#currency-display{
+#currency-display, #prev-searches-display{
     border-style: solid;
     border-color: #b6c5c2;
     height: 100px;
 }
 
 
-#form-area, #results-container{
+#form-area, #results-container, #prev-display-area{
     background-color: rgba(130, 153, 168, 0);
     font-weight: bold;
 }
 
-#form-area{
+#form-area, #prev-display-area{
     flex-direction: row;
     display: flex;
     justify-content: space-evenly;
 }
 
-/* #results-title-container{
-    margin-bottom: 10px;
-
-
-} */
-/* #results-title{
-    position: -webkit-sticky;
-    position: sticky;
-    top:50px;
-} */
-
 #results-header-txt{
     font-size: 20px;
     text-decoration: underline;
-    /* position: -webkit-sticky;
-    position: sticky;
-    top: 100px; */
 }
-/* #results-container{
-    overflow:scroll;
-} */
 
  #results{
     background-color: #8299a8;
@@ -99,13 +80,12 @@ header{
      margin-top: 30px;
      overflow: scroll;
      max-height: 500px;
+     font-size: 20px;
  }
 
  #result-items::-webkit-scrollbar{
 display:none
  }
-
-
 
 input, button, select{
     margin-bottom: 10px;
@@ -150,7 +130,7 @@ input, select, #submit-btn{
 
 .level-item{
     max-width: 350px;
-    max-height:30px;
+    max-height:50px;
     overflow:hidden;
     white-space: nowrap;
     text-align: left;
@@ -167,5 +147,9 @@ input, select, #submit-btn{
     overflow: visible;
     white-space: normal;
     max-height:300px;
-    
+}
+
+#prev-searches-field{
+    height: 200px;
+    width: 400px;
 }
