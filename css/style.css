@@ -33,6 +33,9 @@ header{
     font-size: 20px;
 }
 
+#ipt-lbl{
+    margin-bottom: 25px;
+}
 
 #input-field, #currency-display{
     display: flex;
@@ -48,8 +51,8 @@ header{
 }
 
 
-#form-area, #results-container, #results-header-txt{
-    /* background-color: rgba(130, 153, 168, 0); */
+#form-area, #results-container{
+    background-color: rgba(130, 153, 168, .35);
     font-weight: bold;
 }
 
@@ -59,7 +62,7 @@ header{
     justify-content: space-evenly;
 }
 
-#results-header-text p{
+#results-header-text{
     font-size: 25px;
     text-decoration: underline;
 }
@@ -69,5 +72,43 @@ header{
     
 }
 
+input, button, select{
+    margin-bottom: 10px;
+}
+
+#ipt-country{
+    margin-top: 10px;
+}
+
+input, select, #submit-btn{
+    font-size: 20px;
+    text-align: center;
+    padding: 5px,0,5px,0;
+}
+
+.label{
+    color:white;
+}
 
 
+.modal{
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #b6c5c2;
+    border-radius: 20%;
+}
+
+#modal-OK{
+    left: 140px;
+    top: -10px;
+}
+
+#modal-title{
+    left: 50px;
+    bottom:200px;
+}

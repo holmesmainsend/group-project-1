@@ -13,6 +13,8 @@
 <body>
     <header class="header">
         Header
+        <!-- this is a temporary button for testing only -->
+        <button id="temp-btn" class="button" onclick="toggleModal()">toggle modal test</button>
     </header>
 
     <!-- flex containers -->
@@ -26,7 +28,7 @@
                 <div id="input-field" class="control">
                   <input id="ipt-country" class="input" type="text" placeholder="Enter a Country">
                   <input id="ipt-year" class="input" type="text" placeholder="Enter a year">
-                  <label for="months">Choose a month:</label>
+                  <label for="months" class="label">Choose a month:</label>
                   <select id="months" name="months" class="dropdown-content">
                     <option value="January">January</option>
                     <option value="February">February</option>
@@ -59,27 +61,33 @@
           <div id="results-container"class="tile is-child box ">
               <!-- results area -->
             <h1 id="results-title" class="title has-text-centered">Holidays</h1>
-            <div id="results-header-txt" class="level">
-                <p class="level-item has-text-centered">Date</p>
-                <p class="level-item has-text-centered">Holiday Name</p>
-                <p class="level-item has-text-centered">Description</p>
+            <div id="results-header-txt" class="columns has-text-centered is-justify-content-space-evenly">
+                <div class="level-item has-text-centered is-justify-content-space-evenly">Date</div>
+                <div class="level-item has-text-centered is-justify-content-space-evenly">Holiday Name</div>
+                <div class="level-item has-text-centered is-justify-content-space-evenly">Description</div>
             </div>
-            <div id="results" class="columns has-text-centered">
-                <div id="date" class="column">
-                  some text
-                </div>
-                <div id="airline" class="column">
-                  some text
-                </div>
-                <div id="price" class="column">
-                  some text
-                </div>
-            <!-- <ul id="ul-results"></ul> -->
+            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
+                <div id="date" class="level-item has-text-centered is-justify-content-space-evenly">some text</div>
+                <div id="airline" class="level-item has-text-centered is-justify-content-space-evenly">some text</div>
+                <div id="price" class="level-item has-text-centered is-justify-content-space-evenly">some text</div>
           </div>
         </div>
       </div>
+
+      <div id="error-modal" class="modal">
+        
+          <h1 id="modal-title" class="title">Title</h1>
+          <p id="modal-text">some error message</p>
+        <button id="modal-OK" class="button" aria-label="close" onclick="toggleModal()">OK</button>
+        
+      </div>
+
+
 </body>
 <script src="./script.js"></script>
+
+<!-- leahs script file for testing -->
+<script src="./scriptfileLF.js"></script>
 
 
 </html>
