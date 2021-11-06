@@ -15,14 +15,13 @@
 
 //
 var countryCurrencyArray = [
-    {"name": "country", "code": "3 letter abbreviation"},
     {"name": "Afghanistan", "971": "AFN"},
     {"name": "Ailand Islands","978": "EUR"},
     {"name": "Albania","008": "ALL"},
     {"name": "Algeria","012": "DZD"},
     {"name": "American Samoa","840": "USD"},
     {"name": "Andorra","978": "EUR"},
-    {"name": "Angola","": ""},
+    {"name": "Angola","973": "AOA"},
     {"name": "Anguilla","951": "XCD"},
     {"name": "Argentina","032": "ARS"},
     {"name": "Armenia","051": "AMD"},
@@ -122,73 +121,172 @@ var countryCurrencyArray = [
     {"name": "Israel","376": "ILS"},
     {"name": "Italy","978": "EUR"},
     {"name": "Jamaica","388": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-    {"name": "","": ""},
-
+    {"name": "Japan","392": "JPY"},
+    {"name": "Jersey","826": "GBP"},
+    {"name": "Jordan","400": "JOD"},
+    {"name": "Kazakhstan","398": "KZT"},
+    {"name": "Kenya","404": "KES"},
+    {"name": "Kiribati","036": "AUD"},
+    {"name": "North Korea (The Democratic People's Republic of))","408": "KPW"},
+    {"name": "Korea (The Republic of)","410": "KRW"},
+    {"name": "Kuwait","414": "KWD"},
+    {"name": "Kyrgyzstan","417": "KGS"},
+    {"name": "Lao People's Democratic Republic (The)","418": "LAK"},
+    {"name": "Latvia","978": "EUR"},
+    {"name": "Lebanon","422": "LBP"},
+    {"name": "Lesotho","426": "LSL"},
+    {"name": "Liberia","430": "LRD"},
+    {"name": "Libya","434": "LYD"},
+    {"name": "Liechtenstein","756": "CHF"},
+    {"name": "Lithuania","978": "EUR"},
+    {"name": "Luxembourg","978": "EUR"},
+    {"name": "Macao","446": "MOP"},
+    {"name": "Macedonia (The Former Yugoslav Republic of)","807": "MKD"},
+    {"name": "Madagascar","969": "MGA"},
+    {"name": "Malawi","454": "MWK"},
+    {"name": "Malaysia","458": "MYR"},
+    {"name": "Maldives","462": "MVR"},
+    {"name": "Mali","952": "XOF"},
+    {"name": "Malta","978": "EUR"},
+    {"name": "Marshall Islands (The)","840": "USD"},
+    {"name": "Martinique","978": "EUR"},
+    {"name": "Mauritania","929": "MRU"},
+    {"name": "Mauritius","480": "MUR"},
+    {"name": "Mayotte","978": "EUR"},
+    {"name": "Mexico","484": "MXN"},
+    {"name": "Micronesia (Federated Stats of)","840": "USD"},
+    {"name": "Moldova (The Republic of)","498": "MDL"},
+    {"name": "Monaco","978": "EUR"},
+    {"name": "Mongolia","496": "MNT"},
+    {"name": "Montenegro","978": "EUR"},
+    {"name": "Montserrat","951": "XCD"},
+    {"name": "Morocco","504": "MAD"},
+    {"name": "Mozambique","943": "MZN"},
+    {"name": "Myanmar","104": "MMK"},
+    {"name": "Namibia","516": "NAD"},
+    {"name": "Nauru","036": "AUD"},
+    {"name": "Nepal","524": "NPR"},
+    {"name": "Netherlands (The)","978": "EUR"},
+    {"name": "New Caledonia","953": "XPF"},
+    {"name": "New Zealand","554": "NZD"},
+    {"name": "Nicaragua","558": "NIO"},
+    {"name": "Niger (The)","952": "XOF"},
+    {"name": "Nigeria","566": "NGN"},
+    {"name": "Niue","554": "NZD"},
+    {"name": "Norfolk Iland","036": "AUD"},
+    {"name": "Northern Mariana Island (The)","840": "USD"},
+    {"name": "Norway","578": "NOK"},
+    {"name": "Oman","512": "OMR"},
+    {"name": "Pakistan","586": "PKR"},
+    {"name": "Palau","840": "USD"},
+    {"name": "Panama","590": "PAB"},
+    {"name": "Papua New Guinea","598": "PGK"},
+    {"name": "Paraguay","600": "PYG"},
+    {"name": "Peru","604": "PEN"},
+    {"name": "Philippines (The)","608": "PHP"},
+    {"name": "Pitcairn","554": "NZD"},
+    {"name": "Poland","985": "PLN"},
+    {"name": "Portugal","978": "EUR"},
+    {"name": "Puerto Rico","978": "EUR"},
+    {"name": "Qatar","634": "QAR"},
+    {"name": "Reunion","978": "EUR"},
+    {"name": "Romania","946": "RON"},
+    {"name": "Russian Federation (The)","643": "RUB"},
+    {"name": "Rwanda","646": "RWF"},
+    {"name": "Saint Barthelemy","978": "EUR"},
+    {"name": "Saint Helena, Ascension and Tristan Da Cunha","654": "SHP"},
+    {"name": "Saint Kitts and Nevis","951": "XCD"},
+    {"name": "Saint Lucia","951": "XCD"},
+    {"name": "Saint Martin (French Part)","978": "EUR"},
+    {"name": "Saint Pierre and Miquelon","978": "EUR"},
+    {"name": "Saint Vincent and The Grenadines","951": "XCD"},
+    {"name": "Samoa","882": "WST"},
+    {"name": "San Marino","978": "EUR"},
+    {"name": "Sao Tome and Principe","930": "STN"},
+    {"name": "Saudi Arabia","682": "SAR"},
+    {"name": "Senegal","952": "XOF"},
+    {"name": "Serbia","941": "RSD"},
+    {"name": "Seychelles","690": "SCR"},
+    {"name": "Sierra Leone","694": "SLL"},
+    {"name": "Singapore","702": "SGD"},
+    {"name": "Sint Maarten (Dutch Part)","532": "ANG"},
+    {"name": "Slovakia","978": "EUR"},
+    {"name": "Slovenia","978": "EUR"},
+    {"name": "Solomon Islands","090": "SBD"},
+    {"name": "Somalia","706": "SOS"},
+    {"name": "South Africa","710": "ZAR"},
+    {"name": "South Sudan","728": "SSP"},
+    {"name": "Spain","978": "EUR"},
+    {"name": "Sri Lanka","144": "LKR"},
+    {"name": "Sudan (The)","938": "SDG"},
+    {"name": "Suriname","968": "SRD"},
+    {"name": "Svalbard and Jan Mayen","578": "NOK"},
+    {"name": "Eswatini","748": "SZL"},
+    {"name": "Sweden","752": "SEK"},
+    {"name": "Switzerland","756": "CHF"},
+    {"name": "Syrian Arab Republic","760": "SYP"},
+    {"name": "Taiwan","901": "TWD"},
+    {"name": "Tajikistan","972": "TJS"},
+    {"name": "Tanzania, United Republic of","834": "TZS"},
+    {"name": "Thailand","764": "THB"},
+    {"name": "Timor-Leste","840": "USD"},
+    {"name": "Togo","952": "XOF"},
+    {"name": "Tokelau","554": "NZD"},
+    {"name": "Tonga","776": "TOP"},
+    {"name": "Trinidad and Tobago","780": "TTD"},
+    {"name": "Tunisia","788": "TND"},
+    {"name": "Turkey","949": "TRY"},
+    {"name": "Turkmenistan","934": "TMT"},
+    {"name": "Turks and Caicos Islands (The)","840": "USD"},
+    {"name": "Tuvalu","036": "AUD"},
+    {"name": "Uganda","800": "UGX"},
+    {"name": "Ukraine","980": "UAH"},
+    {"name": "United Arab Emirates (The)","784": "AED"},
+    {"name": "United Kingdom of Great Britain and Northern Ireland (The)","826": "GBP"},
+    {"name": "United States of America (The)","840": "USD"},
+    {"name": "Uruguay","858": "UYU"},
+    {"name": "Uzbekistan","860": "UZS"},
+    {"name": "Vanuatu","548": "VUV"},
+    {"name": "Venezuela (Bolivarian Republic of)","928": "VES"},
+    {"name": "Viet Nam","704": "VND"},
+    {"name": "Virgin Islands","840": "USD"},
+    {"name": "Wallis and Futuna","953": "XPF"},
+    {"name": "Western Sahara","504": "MAD"},
+    {"name": "Yemen","886": "YER"},
+    {"name": "Zambia","967": "ZMW"},
+    {"name": "Zimbabwe","932": "ZWL"},
 ]
 var currencyExchange = $("#placeholder");
 var key = "api_key=zdMueq5BDFXftxiDgJ57t4FJu7qQ7N";
-var apiURL = "https://www.amdoren.com/api/currency.php?"
+var apiURL = fetch("https://www.amdoren.com/api/currency.php?");
+var numberInput = $("#numberInput")
 
 // example URL string: https://www.amdoren.com/api/currency.php?api_key=zdMueq5BDFXftxiDgJ57t4FJu7qQ7N (USD to EUR)
 // https://www.amdoren.com/api/currency.php?api_key=IBZzdLmM2yCYaXjgTZ6x&from=EUR&to=GBP&amount=50 (EUR to GBP, amount is 50)
 
 function getExchangeRates() {
     // grab data attribute
-    var currencyA = inputOldCurrency.selectedOptions[0].dataset.name;
-    var currencyB = inputNewCurrency.selectedOptions[0].dataset.name;
+    var currencyA = countryCurrencyArray["United States of America (The)","840", "USD"];
+    var currencyB = countryCurrencyArray["Yemen","886" , "YER"];
     // grab html elements
     fromCurrencyText = document.querySelector("#fromCurrency");
-    toCurrencyText = document.querySelector("#toCurrency");
+    toCurrencyText = document.getElementById("#toCurrency");
     // update
     fromCurrencyText.innerHTML = currencyA;
     toCurrencyText.innerHTML = currencyB;
 }
 
 
-function exchangeCurrency() {
-    var numberInput = $("#numberInput")
+function exchangeCurrency(currencyB) {
     var exchangeCurrency = apiURL + key + "&from=" + currencyA + "&to=" + currencyB + "&amount=" + numberInput
     $.ajax({
-        url: apiURL,
+        url: exchangeCurrency,
         method: "GET"
-    }).then(function())
+    }).then(function(response) {
+        exchangeMoney = $("<div>").text(response.name + " " + getExchangeRates());
+        $("#toCurrency").append(exchangeMoney);
+    })
 }
 
-getExchangeRates();
+console.log(getExchangeRates());
 
