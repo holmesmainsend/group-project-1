@@ -1,6 +1,6 @@
 body{
     background-color: #b6c5c2;
-    height: 1000px;
+    height: 700px;
     background-image: url("../images/passportstamps.jpg");
     background-size: cover;
     background-position: center;
@@ -11,6 +11,9 @@ header{
     height: 50px;
     text-align:center;
     font-size: 30px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
 }
 
 #main-container{
@@ -24,6 +27,9 @@ header{
     width: 300px;
     padding: 20px;
     justify-content: start;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 30px;
 }
 
 #currency-field{
@@ -52,7 +58,7 @@ header{
 
 
 #form-area, #results-container{
-    background-color: rgba(130, 153, 168, .35);
+    background-color: rgba(130, 153, 168, 0);
     font-weight: bold;
 }
 
@@ -62,16 +68,44 @@ header{
     justify-content: space-evenly;
 }
 
+/* #results-title-container{
+    margin-bottom: 10px;
+
+
+} */
+/* #results-title{
+    position: -webkit-sticky;
+    position: sticky;
+    top:50px;
+} */
+
 #results-header-txt{
     font-size: 20px;
     text-decoration: underline;
+    /* position: -webkit-sticky;
+    position: sticky;
+    top: 100px; */
 }
+/* #results-container{
+    overflow:scroll;
+} */
 
  #results{
     background-color: #8299a8;
     margin: 10px 0 0 0;
-    
 }
+
+ #result-items{
+     margin-top: 30px;
+     overflow: scroll;
+     max-height: 500px;
+ }
+
+ #result-items::-webkit-scrollbar{
+display:none
+ }
+
+
 
 input, button, select{
     margin-bottom: 10px;
@@ -87,7 +121,7 @@ input, select, #submit-btn{
     padding: 5px,0,5px,0;
 }
 
-.label{
+.label, #results-container, #results-title{
     color:white;
 }
 
