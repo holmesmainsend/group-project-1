@@ -1,8 +1,8 @@
 // DOM / Global Variables
 var submitButton = document.querySelector("#submit-btn");
 var yearInput = document.querySelector("#ipt-year");
-var countrySearch = document.querySelector("#ipt-country");
-var monthSearch = document.querySelector("#months");
+var countryInput = document.querySelector("#ipt-country");
+var monthInput = document.querySelector("#months");
 var rowContainer = document.querySelector("#result-items");
 var priorSearchContainer = document.querySelector("#prev-searches-display");
 
@@ -262,10 +262,9 @@ var isoCodeArray = [
 // }
 
 function holidayFetcher() {
-  // Variables hardcoded for testing purposes only
-  var yearSearch = "2021";
-  var countrySearch = "united states";
-  var monthSearch = "12";
+  var yearSearch = yearInput.value.toLowerCase().trim();
+  var countrySearch = countryInput.value.toLowerCase().trim();
+  var monthSearch = monthInput.value.toLowerCase().trim();
 
 //  // Local Storage Adding
 //   var searchItem = document.createElement("input");
@@ -309,5 +308,4 @@ function holidayFetcher() {
 }
 
 // Event Listeners
-// goButton.addEventListener("click", holidayFetcher);
-holidayFetcher();
+submitButton.addEventListener("click", holidayFetcher);
