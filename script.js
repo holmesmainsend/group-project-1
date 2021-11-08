@@ -268,63 +268,69 @@ function priorSearchClick() {
   if (yearSearch.length < 1 || countrySearch.length < 1) {
     console.log("Module Alert: text field cannot be empty");
   } else {
-  var isoConversion = isoCodeArray.find(
-    (element) => element.name === countrySearch
-  );
-  // Error Handling
-  if (isoConversion === void(0)) {
-    console.log("Module Alert: country not recognized; please try again")
-  } else {
-  var isoCode = isoConversion.code;
+    var isoConversion = isoCodeArray.find(
+      (element) => element.name === countrySearch
+    );
+    // Error Handling
+    if (isoConversion === void 0) {
+      console.log("Module Alert: country not recognized; please try again");
+    } else {
+      var isoCode = isoConversion.code;
 
-  fetch(
-    "https://calendarific.com/api/v2/holidays?api_key=a88035acf6c24d7cc11505275f7fa842ae4e6cad&country=" +
-      isoCode +
-      "&year=" +
-      yearSearch +
-      "&month=" +
-      monthSearch
-  ).then(function (response) {
-    response.json().then(function (data) {
-      // Error Handling
-      if (data.response.holidays < 1) {
-        console.log("Module Alert: year not on record; please try again");
-      } else {
-        // Search Item Rows Generation
-      for (i = 0; i < data.response.holidays.length; i++) {
-         var newRow = document.createElement("div");
-         newRow.classList.add("is-flex-mobile", "columns", "has-text-centered", "is-justify-content-space-evenly");
+      fetch(
+        "https://calendarific.com/api/v2/holidays?api_key=a88035acf6c24d7cc11505275f7fa842ae4e6cad&country=" +
+          isoCode +
+          "&year=" +
+          yearSearch +
+          "&month=" +
+          monthSearch
+      ).then(function (response) {
+        response.json().then(function (data) {
+          // Error Handling
+          if (data.response.holidays < 1) {
+            console.log("Module Alert: year not on record; please try again");
+          } else {
+            // Search Item Rows Generation
+            for (i = 0; i < data.response.holidays.length; i++) {
+              var newRow = document.createElement("div");
+              newRow.classList.add(
+                "is-flex-mobile",
+                "columns",
+                "has-text-centered",
+                "is-justify-content-space-evenly"
+              );
 
-         var holidayDateOutput = document.createElement("div");
-         holidayDateOutput.classList.add("level-item");
-         holidayDateOutput.innerText = data.response.holidays[i].date.iso;
-         newRow.appendChild(holidayDateOutput);
+              var holidayDateOutput = document.createElement("div");
+              holidayDateOutput.classList.add("level-item");
+              holidayDateOutput.innerText = data.response.holidays[i].date.iso;
+              newRow.appendChild(holidayDateOutput);
 
-         var holidayNameOutput = document.createElement("div");
-         holidayNameOutput.classList.add("level-item");
-         holidayNameOutput.innerText = data.response.holidays[i].name;
-         newRow.appendChild(holidayNameOutput);
+              var holidayNameOutput = document.createElement("div");
+              holidayNameOutput.classList.add("level-item");
+              holidayNameOutput.innerText = data.response.holidays[i].name;
+              newRow.appendChild(holidayNameOutput);
 
-         var holidayDetailsOutput = document.createElement("div");
-         holidayDetailsOutput.classList.add("level-item");
-         holidayDetailsOutput.innerText = data.response.holidays[i].description;
-         newRow.appendChild(holidayDetailsOutput);
+              var holidayDetailsOutput = document.createElement("div");
+              holidayDetailsOutput.classList.add("level-item");
+              holidayDetailsOutput.innerText =
+                data.response.holidays[i].description;
+              newRow.appendChild(holidayDetailsOutput);
 
-         resultsContainer.appendChild(newRow);
-      }
+              resultsContainer.appendChild(newRow);
+            }
+          }
+        });
+      });
     }
-    });
-  });
-}
   }
 }
 
 // Search History On Page Load (Current Cap: 5)
 for (i = localStorage.length - 1; i > 0 && i > localStorage.length - 6; i--) {
-    var priorSearchItem = document.createElement("button");
-    priorSearchItem.textContent = localStorage.getItem([i]);
-    priorSearchContainer.appendChild(priorSearchItem);
-    priorSearchItem.addEventListener("click", priorSearchClick);
+  var priorSearchItem = document.createElement("button");
+  priorSearchItem.textContent = localStorage.getItem([i]);
+  priorSearchContainer.appendChild(priorSearchItem);
+  priorSearchItem.addEventListener("click", priorSearchClick);
 }
 
 // Erase Items from Last Search
@@ -348,62 +354,73 @@ function holidayFetcher() {
   if (yearSearch.length < 1 || countrySearch.length < 1) {
     console.log("Module Alert: text field cannot be empty");
   } else {
-  var isoConversion = isoCodeArray.find(
-    (element) => element.name === countrySearch
-  );
-  // Error Handling
-  if (isoConversion === void(0)) {
-    console.log("Module Alert: country not recognized; please try again")
-  } else {
-  var isoCode = isoConversion.code;
+    var isoConversion = isoCodeArray.find(
+      (element) => element.name === countrySearch
+    );
+    // Error Handling
+    if (isoConversion === void 0) {
+      console.log("Module Alert: country not recognized; please try again");
+    } else {
+      var isoCode = isoConversion.code;
 
-  fetch(
-    "https://calendarific.com/api/v2/holidays?api_key=a88035acf6c24d7cc11505275f7fa842ae4e6cad&country=" +
-      isoCode +
-      "&year=" +
-      yearSearch +
-      "&month=" +
-      monthSearch
-  ).then(function (response) {
-    response.json().then(function (data) {
-      // Error Handling
-      if (data.response.holidays < 1) {
-        console.log("Module Alert: year not on record; please try again");
-      } else {
-        // Previous Searches Section + Local Storage Adding
-        var searchItem = document.createElement("button");
-        searchItem.textContent = yearInput.value + ", " + monthInput.value + ", " + countryInput.value;
-        priorSearchContainer.appendChild(searchItem);
-        searchItem.addEventListener("click", priorSearchClick);
-        localStorage.setItem (x, searchItem.textContent);
-        x++;
+      fetch(
+        "https://calendarific.com/api/v2/holidays?api_key=a88035acf6c24d7cc11505275f7fa842ae4e6cad&country=" +
+          isoCode +
+          "&year=" +
+          yearSearch +
+          "&month=" +
+          monthSearch
+      ).then(function (response) {
+        response.json().then(function (data) {
+          // Error Handling
+          if (data.response.holidays < 1) {
+            console.log("Module Alert: year not on record; please try again");
+          } else {
+            // Previous Searches Section + Local Storage Adding
+            var searchItem = document.createElement("button");
+            searchItem.textContent =
+              yearInput.value +
+              ", " +
+              monthInput.value +
+              ", " +
+              countryInput.value;
+            priorSearchContainer.appendChild(searchItem);
+            searchItem.addEventListener("click", priorSearchClick);
+            localStorage.setItem(x, searchItem.textContent);
+            x++;
 
-        // Search Item Rows Generation
-      for (i = 0; i < data.response.holidays.length; i++) {
-         var newRow = document.createElement("div");
-         newRow.classList.add("is-flex-mobile", "columns", "has-text-centered", "is-justify-content-space-evenly");
+            // Search Item Rows Generation
+            for (i = 0; i < data.response.holidays.length; i++) {
+              var newRow = document.createElement("div");
+              newRow.classList.add(
+                "is-flex-mobile",
+                "columns",
+                "has-text-centered",
+                "is-justify-content-space-evenly"
+              );
 
-         var holidayDateOutput = document.createElement("div");
-         holidayDateOutput.classList.add("level-item");
-         holidayDateOutput.innerText = data.response.holidays[i].date.iso;
-         newRow.appendChild(holidayDateOutput);
+              var holidayDateOutput = document.createElement("div");
+              holidayDateOutput.classList.add("level-item");
+              holidayDateOutput.innerText = data.response.holidays[i].date.iso;
+              newRow.appendChild(holidayDateOutput);
 
-         var holidayNameOutput = document.createElement("div");
-         holidayNameOutput.classList.add("level-item");
-         holidayNameOutput.innerText = data.response.holidays[i].name;
-         newRow.appendChild(holidayNameOutput);
+              var holidayNameOutput = document.createElement("div");
+              holidayNameOutput.classList.add("level-item");
+              holidayNameOutput.innerText = data.response.holidays[i].name;
+              newRow.appendChild(holidayNameOutput);
 
-         var holidayDetailsOutput = document.createElement("div");
-         holidayDetailsOutput.classList.add("level-item");
-         holidayDetailsOutput.innerText = data.response.holidays[i].description;
-         newRow.appendChild(holidayDetailsOutput);
+              var holidayDetailsOutput = document.createElement("div");
+              holidayDetailsOutput.classList.add("level-item");
+              holidayDetailsOutput.innerText =
+                data.response.holidays[i].description;
+              newRow.appendChild(holidayDetailsOutput);
 
-         resultsContainer.appendChild(newRow);
-      }
+              resultsContainer.appendChild(newRow);
+            }
+          }
+        });
+      });
     }
-    });
-  });
-}
   }
 }
 
