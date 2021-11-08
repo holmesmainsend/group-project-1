@@ -11,37 +11,43 @@
     <title>Group-Project-1</title>
 </head>
 <body>
+  <a name="top"></a>
     <header class="header">
         Header
         <!-- this is a temporary button for testing only -->
-        <button id="temp-btn" class="button" onclick="toggleModal()">toggle modal test</button>
+        <!-- <button id="temp-btn" class="button" onclick="toggleModal()">toggle modal test</button> -->
     </header>
+
+    <nav id="navbar" class="is-hidden-widescreen" role="navigation" aria-label="main navigation">
+      <a href="#top">Back to top</a>
+      <a href="#results-top">Results</a>
+    </nav>
 
     <!-- flex containers -->
     <div id="main-container" class="tile is-ancestor">
-        <div id="form-area-container"class="tile is-4 is-vertical is-parent">
-          <div id="form-area" class="tile is-child box">
+        <div id="form-area-container"class="is-4 is-vertical is-parent">
+          <div id="form-area" class="is-child box">
 
               <!-- input form -->
             <div id="form-field" class="field">
                 <label id="ipt-lbl"class="label">Search for Holidays</label>
-                <div id="input-field" class="control">
+                <div id="control-box" class="control">
                   <input id="ipt-country" class="input" type="text" placeholder="Enter a Country">
                   <input id="ipt-year" class="input" type="text" placeholder="Enter a year">
                   <label for="months" class="label">Choose a month:</label>
-                  <select id="months" name="months" class="dropdown-content">
-                    <option value="January">January</option>
-                    <option value="February">February</option>
-                    <option value="March">March</option>
-                    <option value="April">April</option>
-                    <option value="May">May</option>
-                    <option value="June">June</option>
-                    <option value="July">July</option>
-                    <option value="August">August</option>
-                    <option value="September">September</option>
-                    <option value="October">October</option>
-                    <option value="November">November</option>
-                    <option value="December">December</option>
+                  <select id="months" name="months" >
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
                   </select>
                   <button id="submit-btn" class="button">Submit</button>
                 </div>
@@ -55,7 +61,7 @@
           </div>
 
           <!-- Previous Searches area -->
-        <div id="prev-display-area" class="tile is-child box">
+        <div id="prev-display-area" class="is-child box">
           <div id="prev-searches-field" class="field">
             <label id="prev-searches-lbl"class="label">Previous Searches</label>
             <div id="prev-searches-display" class="control"></div>
@@ -64,12 +70,13 @@
       </div>
 
         <!-- flex containers -->
-      <div class="tile is-parent">
+      <div id="results-top" class="tile is-parent">
         <div id="results-container"class="tile is-child box ">
           <div id="results-header-container">
               <h1 id="results-title" class="title has-text-centered">Holidays</h1>
+
             <!-- results header area -->
-            <div id="results-header-txt" class="columns has-text-centered is-justify-content-space-evenly">
+            <div id="results-header-txt" class="is-flex-mobile columns has-text-centered is-justify-content-space-evenly">
                 <div class="level-item">Date</div>
                 <div class="level-item">Holiday Name</div>
                 <div class="level-item">Description</div>
@@ -79,12 +86,12 @@
           <!-- results area  the number of results elements are for testing only.  MVP will dynamically create and HTML will be reduced to one non hard coded example-->
           
           <div id="result-items">
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-                <div id="date" class="level-item">some text</div>
-                <div id="holiday" class="level-item">some text</div>
-                <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
+            <div id="results" class="is-flex-mobile columns has-text-centered is-justify-content-space-evenly">
+                <div id="date" class="level-item"></div>
+                <div id="holiday" class="level-item"></div>
+                <div id="description" class="level-item"></div>
             </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
+            <!-- <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
               <div id="date" class="level-item">some text</div>
               <div id="holiday" class="level-item">some text</div>
               <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
@@ -178,16 +185,15 @@
             <div id="date" class="level-item">some text</div>
             <div id="holiday" class="level-item">some text</div>
             <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
+          </div> -->
         </div>
       </div>
 
+      <!-- modal -->
       <div id="error-modal" class="modal">
-        
           <h1 id="modal-title" class="title">Title</h1>
           <p id="modal-text">some error message</p>
-        <button id="modal-OK" class="button" aria-label="close" onclick="toggleModal()">OK</button>
-        
+          <button id="modal-OK" class="button" aria-label="close" onclick="toggleModal()">OK</button>
       </div>
 
 
