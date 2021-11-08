@@ -3,7 +3,7 @@ var submitButton = document.querySelector("#submit-btn");
 var yearInput = document.querySelector("#ipt-year");
 var countryInput = document.querySelector("#ipt-country");
 var monthInput = document.querySelector("#months");
-var rowContainer = document.querySelector("#result-items");
+var resultsContainer = document.querySelector("#result-items");
 var priorSearchContainer = document.querySelector("#prev-searches-display");
 
 // ISO Alpha-2 Codes
@@ -254,22 +254,24 @@ var isoCodeArray = [
   { name: "zimbabwe", code: "zw" },
 ];
 
-// // Search History On Page Load
-// for (i = 0; i < localStorage.length; i++) {
-//     var priorSearchItem = document.createElement("input");
-//     priorSearchItem.textContent = localStorage.getItem[i];
-//     priorSearchContainer.appendChild(priorSearchItem);
-// }
+// Search History On Page Load
+for (i = 0; i < localStorage.length; i++) {
+    var priorSearchItem = document.createElement("button");
+    priorSearchItem.textContent = localStorage.getItem[i];
+    priorSearchItem.addEventListener("click", console.log("muffins"));
+    priorSearchContainer.appendChild(priorSearchItem);
+}
 
 function holidayFetcher() {
   var yearSearch = yearInput.value.toLowerCase().trim();
   var countrySearch = countryInput.value.toLowerCase().trim();
   var monthSearch = monthInput.value.toLowerCase().trim();
 
-//  // Local Storage Adding
-//   var searchItem = document.createElement("input");
-//   searchItem.innerText = countrySearch.innerText;
-//   priorSearchContainer.appendChild(searchItem);
+ // Local Storage Adding
+  var searchItem = document.createElement("button");
+  searchItem.textContent = yearInput.value + " " + monthInput.value + " " + countryInput.value;
+  priorSearchContainer.appendChild(searchItem);
+  
 
   var isoConversion = isoCodeArray.find(
     (element) => element.name === countrySearch
@@ -286,25 +288,34 @@ function holidayFetcher() {
   ).then(function (response) {
     response.json().then(function (data) {
       console.log(data.response.holidays);
-      // for (i = 0; i < data.response.holidays.length; i++) {
-      //    var newRow = document.createElement();
 
-      //    var holidayDateOutput = document.creatElement();
-      //    holidayDateOutput.innerText = data.response.holidays[i].date.iso
-      //    newRow.appendChild(holidayDateOutput);
+      for (i = 0; i < data.response.holidays.length; i++) {
+         var newRow = document.createElement("div");
+         newRow.classList.add("is-flex-mobile", "columns", "has-text-centered", "is-justify-content-space-evenly");
 
-      //    var holidayNameOutput = document.creatElement();
-      //    holidayNameOutput.innerText = data.response.holidays[i].name
-      //    newRow.appendChild(holidayNameOutput);
+         var holidayDateOutput = document.createElement("div");
+         holidayDateOutput.classList.add("level-item");
+         holidayDateOutput.innerText = data.response.holidays[i].date.iso;
+         newRow.appendChild(holidayDateOutput);
 
-      //    var holidayDetailsOutput = document.creatElement();
-      //    holidayDetailsOutput.innerText = data.response.holidays[i].description
-      //    newRow.appendChild(holidayDetailsOutput);
+         var holidayNameOutput = document.createElement("div");
+         holidayNameOutput.classList.add("level-item");
+         holidayNameOutput.innerText = data.response.holidays[i].name;
+         newRow.appendChild(holidayNameOutput);
 
-      //    var rowContainer.appendChild(newRow);
-      // }
+         var holidayDetailsOutput = document.createElement("div");
+         holidayDetailsOutput.classList.add("level-item");
+         holidayDetailsOutput.innerText = data.response.holidays[i].description;
+         newRow.appendChild(holidayDetailsOutput);
+
+         resultsContainer.appendChild(newRow);
+      }
     });
   });
+}
+
+function priorSearch() {
+
 }
 
 // Event Listeners
