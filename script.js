@@ -1,11 +1,10 @@
 // DOM / Global Variables
-// var goButton = document.querySelector();
-// var yearInput = document.querySelector();
-// var countrySearch = document.querySelector();
-// var monthSearch = document.querySelector();
-// var rowContainer = document.querySelector();
-
-// (?) var priorSearchContainer = document.querySelector();
+var submitButton = document.querySelector("#submit-btn");
+var yearInput = document.querySelector("#ipt-year");
+var countrySearch = document.querySelector("#ipt-country");
+var monthSearch = document.querySelector("#months");
+var rowContainer = document.querySelector("#result-items");
+var priorSearchContainer = document.querySelector("#prev-searches-display");
 
 // ISO Alpha-2 Codes
 var isoCodeArray = [
@@ -309,6 +308,6 @@ function holidayFetcher() {
   });
 }
 
-// Event Listener
+// Event Listeners
 // goButton.addEventListener("click", holidayFetcher);
 holidayFetcher();
