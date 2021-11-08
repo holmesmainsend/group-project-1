@@ -5,6 +5,7 @@ var countryInput = document.querySelector("#ipt-country");
 var monthInput = document.querySelector("#months");
 var resultsContainer = document.querySelector("#result-items");
 var priorSearchContainer = document.querySelector("#prev-searches-display");
+var x = localStorage.length;
 
 // ISO Alpha-2 Codes
 var isoCodeArray = [
@@ -267,15 +268,17 @@ function holidayFetcher() {
   var countrySearch = countryInput.value.toLowerCase().trim();
   var monthSearch = monthInput.value.toLowerCase().trim();
 
- // Local Storage Adding
-  var searchItem = document.createElement("button");
-  searchItem.textContent = yearInput.value + " " + monthInput.value + " " + countryInput.value;
-  priorSearchContainer.appendChild(searchItem);
-  
-
+  // Error Handling
+  if (yearSearch.length < 1 || countrySearch.length < 1) {
+    console.log("Module Alert: text field cannot be empty");
+  } else {
   var isoConversion = isoCodeArray.find(
     (element) => element.name === countrySearch
   );
+  // Error Handling
+  if (isoConversion === void(0)) {
+    console.log("Module Alert: country not recognized; please try again")
+  } else {
   var isoCode = isoConversion.code;
 
   fetch(
@@ -287,7 +290,18 @@ function holidayFetcher() {
       monthSearch
   ).then(function (response) {
     response.json().then(function (data) {
-      console.log(data.response.holidays);
+      // Error Handling
+      if (data.response.holidays < 1) {
+        console.log("Module Alert: year not on record; please try again");
+      } else {
+        // Local Storage Adding
+        var searchItem = document.createElement("button");
+        searchItem.textContent = yearInput.value + " " + monthInput.value + " " + countryInput.value;
+        priorSearchContainer.appendChild(searchItem);
+        x++;
+        localStorage.setItem (x, searchItem.textContent);
+
+        console.log(data.response.holidays);
 
       for (i = 0; i < data.response.holidays.length; i++) {
          var newRow = document.createElement("div");
@@ -310,8 +324,11 @@ function holidayFetcher() {
 
          resultsContainer.appendChild(newRow);
       }
+    }
     });
   });
+}
+  }
 }
 
 function priorSearch() {
