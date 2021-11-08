@@ -258,9 +258,9 @@ var isoCodeArray = [
 // Search History On Page Load
 for (i = 0; i < localStorage.length; i++) {
     var priorSearchItem = document.createElement("button");
-    priorSearchItem.textContent = localStorage.getItem[i];
-    priorSearchItem.addEventListener("click", console.log("muffins"));
+    priorSearchItem.textContent = localStorage.getItem([i]);
     priorSearchContainer.appendChild(priorSearchItem);
+    priorSearchItem.addEventListener("click", console.log("muffins"));
 }
 
 function holidayFetcher() {
@@ -298,7 +298,6 @@ function holidayFetcher() {
         var searchItem = document.createElement("button");
         searchItem.textContent = yearInput.value + " " + monthInput.value + " " + countryInput.value;
         priorSearchContainer.appendChild(searchItem);
-        x++;
         localStorage.setItem (x, searchItem.textContent);
 
         console.log(data.response.holidays);
