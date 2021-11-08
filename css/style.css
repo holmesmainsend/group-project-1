@@ -1,0 +1,196 @@
+body{
+    background-color: #b6c5c2;
+    height: 700px;
+    background-image: url("../images/passportstamps.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+header{
+    background-color: #b6c5c2;
+    height: 50px;
+    text-align:center;
+    font-size: 30px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+}
+
+#main-container{
+    height: 600px;
+}
+
+#form-field, #currency-field, #prev-searches-field{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    justify-content: start;
+    top: 30px;
+    
+}
+
+#form-field, #currency-field{
+    width: 300px;
+}
+
+#currency-field{
+    height: 150px;
+}
+#currency-lbl, #ipt-lbl, #prev-searches-lbl{
+    font-size: 25px;
+    text-align: center;
+}
+
+#ipt-lbl{
+    margin-bottom: 25px;
+}
+
+#input-field, #currency-display, #prev-searches-display{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-evenly;
+}
+
+#currency-display, #prev-searches-display{
+    border-style: solid;
+    border-color: #b6c5c2;
+    height: 100px;
+}
+ #prev-searches-display, #prev-searches-field{
+    width: 500px;
+ }
+
+#form-area, #results-container, #prev-display-area{
+    background-color: rgba(130, 153, 168, 0);
+    font-weight: bold;
+}
+
+#form-area, #prev-display-area{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+}
+#form-area{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#previous-display-area{
+    padding-top: 0px;
+}
+
+#results-header-txt{
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+#results{
+    background-color: #8299a8;
+    margin: 10px 0 0 0;
+}
+
+#result-items{
+     margin-top: 10px;
+     overflow: scroll;
+     max-height: 500px;
+     font-size: 20px;
+ }
+
+#result-items::-webkit-scrollbar{
+    display:none
+ }
+
+#ipt-country{
+    margin-top: 10px;
+}
+
+input, select, #submit-btn{
+    font-size: 20px;
+    text-align: center;
+    padding: 5px,0,5px,0;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 35px;
+}
+
+select{
+    padding: 0;
+}
+
+.label, #results-container, #results-title{
+    color:white;
+}
+
+#control-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal{
+    height: 300px;
+    width: 400px;
+    position: absolute;
+    justify-content: space-between;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #b6c5c2;
+    border-radius: 20%;
+}
+
+#modal-OK{
+    left: 140px;
+    top: -10px;
+}
+
+#modal-title{
+    left: 50px;
+    bottom:200px;
+}
+
+.level-item{
+    max-width: 350px;
+    max-height:50px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-align: left;
+    display: block;
+    text-align: center;
+    width: 300px;
+}
+
+#date, #holiday, #description{
+    font-weight:lighter;
+}
+
+#description:hover{
+    overflow: visible;
+    white-space: normal;
+    max-height:300px;
+}
+
+@media only screen and (max-device-width: 768px) {
+
+
+}.level-item{
+    width: 200px;
+}
+
+#navbar{
+    font-size: 20px;
+    background-color: #8299a8;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
+    text-align: center;
+    
+}
+
+a{
+    margin: 0px,50px,0px,50px;
+}
