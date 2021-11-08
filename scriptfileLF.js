@@ -8,5 +8,6 @@ function toggleModal() {
         errorModal.style.display = "none";
     }
   }
+  
 
  
