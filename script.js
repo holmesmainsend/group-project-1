@@ -255,14 +255,25 @@ var isoCodeArray = [
   { name: "zimbabwe", code: "zw" },
 ];
 
+// Prior Search
+function priorSearchClick() {
+  var yearSearch = this.textContent.split(",")[0].toLowerCase().trim();
+  var countrySearch = this.textContent.split(",")[1].toLowerCase().trim();
+  var monthSearch = this.textContent.split(",")[2].toLowerCase().trim();
+  console.log(yearSearch);
+  console.log(countrySearch);
+  console.log(monthSearch);
+}
+
 // Search History On Page Load
 for (i = 0; i < localStorage.length; i++) {
     var priorSearchItem = document.createElement("button");
     priorSearchItem.textContent = localStorage.getItem([i]);
     priorSearchContainer.appendChild(priorSearchItem);
-    priorSearchItem.addEventListener("click", console.log("muffins"));
+    priorSearchItem.addEventListener("click", priorSearchClick);
 }
 
+// New Search
 function holidayFetcher() {
   var yearSearch = yearInput.value.toLowerCase().trim();
   var countrySearch = countryInput.value.toLowerCase().trim();
@@ -294,14 +305,16 @@ function holidayFetcher() {
       if (data.response.holidays < 1) {
         console.log("Module Alert: year not on record; please try again");
       } else {
-        // Local Storage Adding
+        // Previous Searches Section + Local Storage Adding
         var searchItem = document.createElement("button");
-        searchItem.textContent = yearInput.value + " " + monthInput.value + " " + countryInput.value;
+        searchItem.textContent = yearInput.value + "," + monthInput.value + "," + countryInput.value;
         priorSearchContainer.appendChild(searchItem);
+        searchItem.addEventListener("click", priorSearchClick);
         localStorage.setItem (x, searchItem.textContent);
 
         console.log(data.response.holidays);
 
+        // Search Item Rows Generation
       for (i = 0; i < data.response.holidays.length; i++) {
          var newRow = document.createElement("div");
          newRow.classList.add("is-flex-mobile", "columns", "has-text-centered", "is-justify-content-space-evenly");
@@ -330,9 +343,5 @@ function holidayFetcher() {
   }
 }
 
-function priorSearch() {
-
-}
-
-// Event Listeners
+// Event Listener
 submitButton.addEventListener("click", holidayFetcher);
