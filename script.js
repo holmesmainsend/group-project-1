@@ -240,6 +240,8 @@ var isoCodeArray = [
   { name: "united arab emirates", code: "ae" },
   { name: "united kingdom", code: "gb" },
   { name: "united states", code: "us" },
+  { name: "united states of america", code: "us" },
+  { name: "usa", code: "us" },
   { name: "united states minor outlying islands", code: "um" },
   { name: "uruguay", code: "uy" },
   { name: "uzbekistan", code: "uz" },
@@ -258,26 +260,89 @@ var isoCodeArray = [
 // Prior Search
 function priorSearchClick() {
   var yearSearch = this.textContent.split(",")[0].toLowerCase().trim();
-  var countrySearch = this.textContent.split(",")[1].toLowerCase().trim();
-  var monthSearch = this.textContent.split(",")[2].toLowerCase().trim();
-  console.log(yearSearch);
-  console.log(countrySearch);
-  console.log(monthSearch);
+  var monthSearch = this.textContent.split(",")[1].toLowerCase().trim();
+  var countrySearch = this.textContent.split(",")[2].toLowerCase().trim();
+  cleanser();
+
+  // Error Handling
+  if (yearSearch.length < 1 || countrySearch.length < 1) {
+    console.log("Module Alert: text field cannot be empty");
+  } else {
+  var isoConversion = isoCodeArray.find(
+    (element) => element.name === countrySearch
+  );
+  // Error Handling
+  if (isoConversion === void(0)) {
+    console.log("Module Alert: country not recognized; please try again")
+  } else {
+  var isoCode = isoConversion.code;
+
+  fetch(
+    "https://calendarific.com/api/v2/holidays?api_key=a88035acf6c24d7cc11505275f7fa842ae4e6cad&country=" +
+      isoCode +
+      "&year=" +
+      yearSearch +
+      "&month=" +
+      monthSearch
+  ).then(function (response) {
+    response.json().then(function (data) {
+      // Error Handling
+      if (data.response.holidays < 1) {
+        console.log("Module Alert: year not on record; please try again");
+      } else {
+        // Search Item Rows Generation
+      for (i = 0; i < data.response.holidays.length; i++) {
+         var newRow = document.createElement("div");
+         newRow.classList.add("is-flex-mobile", "columns", "has-text-centered", "is-justify-content-space-evenly");
+
+         var holidayDateOutput = document.createElement("div");
+         holidayDateOutput.classList.add("level-item");
+         holidayDateOutput.innerText = data.response.holidays[i].date.iso;
+         newRow.appendChild(holidayDateOutput);
+
+         var holidayNameOutput = document.createElement("div");
+         holidayNameOutput.classList.add("level-item");
+         holidayNameOutput.innerText = data.response.holidays[i].name;
+         newRow.appendChild(holidayNameOutput);
+
+         var holidayDetailsOutput = document.createElement("div");
+         holidayDetailsOutput.classList.add("level-item");
+         holidayDetailsOutput.innerText = data.response.holidays[i].description;
+         newRow.appendChild(holidayDetailsOutput);
+
+         resultsContainer.appendChild(newRow);
+      }
+    }
+    });
+  });
+}
+  }
 }
 
-// Search History On Page Load
-for (i = 0; i < localStorage.length; i++) {
+// Search History On Page Load (Current Cap: 5)
+for (i = localStorage.length - 1; i > 0 && i > localStorage.length - 6; i--) {
     var priorSearchItem = document.createElement("button");
     priorSearchItem.textContent = localStorage.getItem([i]);
     priorSearchContainer.appendChild(priorSearchItem);
     priorSearchItem.addEventListener("click", priorSearchClick);
 }
 
+// Erase Items from Last Search
+function cleanser() {
+  var levelItems = document.getElementsByClassName("level-item");
+  while (levelItems.length > 0) {
+    levelItems[0].parentElement.removeChild(levelItems[0]);
+  }
+}
+
 // New Search
 function holidayFetcher() {
+  // Field Values
   var yearSearch = yearInput.value.toLowerCase().trim();
   var countrySearch = countryInput.value.toLowerCase().trim();
   var monthSearch = monthInput.value.toLowerCase().trim();
+
+  cleanser();
 
   // Error Handling
   if (yearSearch.length < 1 || countrySearch.length < 1) {
@@ -307,12 +372,11 @@ function holidayFetcher() {
       } else {
         // Previous Searches Section + Local Storage Adding
         var searchItem = document.createElement("button");
-        searchItem.textContent = yearInput.value + "," + monthInput.value + "," + countryInput.value;
+        searchItem.textContent = yearInput.value + ", " + monthInput.value + ", " + countryInput.value;
         priorSearchContainer.appendChild(searchItem);
         searchItem.addEventListener("click", priorSearchClick);
         localStorage.setItem (x, searchItem.textContent);
-
-        console.log(data.response.holidays);
+        x++;
 
         // Search Item Rows Generation
       for (i = 0; i < data.response.holidays.length; i++) {
