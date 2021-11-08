@@ -5,6 +5,9 @@ var countryInput = document.querySelector("#ipt-country");
 var monthInput = document.querySelector("#months");
 var resultsContainer = document.querySelector("#result-items");
 var priorSearchContainer = document.querySelector("#prev-searches-display");
+var modalContainer = document.querySelector(".modal");
+var modalText = document.querySelector(".modal-text")
+var modalCloseButton = document.querySelector(".modal-close");
 var x = localStorage.length;
 
 // ISO Alpha-2 Codes
@@ -257,24 +260,38 @@ var isoCodeArray = [
   { name: "zimbabwe", code: "zw" },
 ];
 
+// Error Modals
+function toggleOnEmptyField() {
+  modalContainer.classList.add("is-active");
+  modalText.textContent = "Error: text field cannot be empty";
+  modalCloseButton.addEventListener("click", toggleOff);
+}
+
+function toggleOnInvalidCountry() {
+  modalContainer.classList.add("is-active");
+  modalText.textContent = "Error: country name not recognized; please try again";
+  modalCloseButton.addEventListener("click", toggleOff);
+}
+
+function toggleOnInvalidYear() {
+  modalContainer.classList.add("is-active");
+  modalText.textContent = "Error: year not on record; please try again";
+  modalCloseButton.addEventListener("click", toggleOff);
+}
+
+function toggleOff() {
+  modalContainer.classList.remove("is-active");
+}
+
 // Prior Search
 function priorSearchClick() {
   var yearSearch = this.textContent.split(",")[0].toLowerCase().trim();
   var monthSearch = this.textContent.split(",")[1].toLowerCase().trim();
   var countrySearch = this.textContent.split(",")[2].toLowerCase().trim();
   cleanser();
-
-  // Error Handling
-  if (yearSearch.length < 1 || countrySearch.length < 1) {
-    console.log("Module Alert: text field cannot be empty");
-  } else {
     var isoConversion = isoCodeArray.find(
       (element) => element.name === countrySearch
     );
-    // Error Handling
-    if (isoConversion === void 0) {
-      console.log("Module Alert: country not recognized; please try again");
-    } else {
       var isoCode = isoConversion.code;
 
       fetch(
@@ -286,10 +303,6 @@ function priorSearchClick() {
           monthSearch
       ).then(function (response) {
         response.json().then(function (data) {
-          // Error Handling
-          if (data.response.holidays < 1) {
-            console.log("Module Alert: year not on record; please try again");
-          } else {
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
@@ -318,11 +331,8 @@ function priorSearchClick() {
 
               resultsContainer.appendChild(newRow);
             }
-          }
-        });
-      });
-    }
-  }
+          })
+        })
 }
 
 // Search History On Page Load (Current Cap: 5)
@@ -352,14 +362,14 @@ function holidayFetcher() {
 
   // Error Handling
   if (yearSearch.length < 1 || countrySearch.length < 1) {
-    console.log("Module Alert: text field cannot be empty");
+    toggleOnEmptyField();
   } else {
     var isoConversion = isoCodeArray.find(
       (element) => element.name === countrySearch
     );
     // Error Handling
     if (isoConversion === void 0) {
-      console.log("Module Alert: country not recognized; please try again");
+      toggleOnInvalidCountry();
     } else {
       var isoCode = isoConversion.code;
 
@@ -374,7 +384,7 @@ function holidayFetcher() {
         response.json().then(function (data) {
           // Error Handling
           if (data.response.holidays < 1) {
-            console.log("Module Alert: year not on record; please try again");
+            toggleOnInvalidYear();
           } else {
             // Previous Searches Section + Local Storage Adding
             var searchItem = document.createElement("button");
