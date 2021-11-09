@@ -1,6 +1,7 @@
 // global variables
-var countryInput = document.querySelector("#ipt-country")
-var submitButton = document.querySelector("#submit-btn")
+var countryInput = document.querySelector("#ipt-country");
+var yearInput = document.querySelector("#ipt-year");
+var submitButton = document.querySelector("#submit-btn");
 var currencyDisplay = document.querySelector("#currency-display");
 // country currency array codes
 var countryCurrencyArray = [
@@ -242,20 +243,20 @@ var countryCurrencyArray = [
     {name: "yemen", code: "YER"},
     {name: "zambia", code: "ZMW"},
     {name: "zimbabwe", code: "ZWL"},
-]
+];
 
 // begins exchange rate function
-function getExchangeRate(currencyB) {
+function getExchangeRate() {
     var apiURL = "https://freecurrencyapi.net/api/v2/latest?";
     var key = "api_key=240ccda0-40bb-11ec-9c8b-d7d462840019";
     // grab data attribute
     var currencyA = countryInput.value.countryCurrencyArray["united states of america", "USD"];
-    var currencyB = countryInput.value.countryCurrencyArray[i];
+    var currencyB = countryInput.value.countryCurrencyArray["australia", "AUD"];
     // grab html elements
     targetCurrencyText = document.getElementById("#currency-display");
 
     // fetch API to change currency rate from American Dollar (USD) to selected currency
-    fetch (
+    curl (
         apiURL + key +
         "&base_currency=" + currencyA +
         "&target_currency=" + currencyB
@@ -284,8 +285,32 @@ console.log(getExchangeRate);
 
 submitButton.addEventListener("click", getExchangeRate);
 
-// need an event listener for search box to grab country
-// document.addEventListener
+// add function for listing a countries old currency linked to the year search
+function oldExchangeRates() {
+    var apiURL = "https://freecurrencyapi.net/api/v2/historical?apikey=240ccda0-40bb-11ec-9c8b-d7d462840019&base_currency=USD&date_from=2020-10-01&date_to=2021-11-08";
+    var key = "api_key=240ccda0-40bb-11ec-9c8b-d7d462840019";
+    var currencyA = countryInput.value.countryCurrencyArray["united states of america", "USD"];
+    var currencyB = countryInput.value.countryCurrencyArray["australia", "AUD"];
+    var yearInput = document.querySelector("#ipt-year");
+
+    curl (
+        apiURL + key +
+        "&base_currency=" + currencyA +
+        "&target_currency" + currencyB +
+        "&date_from=" + yearInput +
+        "&to_date" + "2021-11-08"
+    ).then(function(data) {
+        response.JSON().then(function(data){
+            if (data.response.historical > "2021") {
+                return(null)
+            } else if (data.response.historical < "2021") {
+                return(data)
+            } else {
+                getExchangeRate()
+            };
+        })
+    }) 
+}
 
 // Error Codes
 // 200 = successful request
