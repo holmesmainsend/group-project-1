@@ -303,6 +303,7 @@ function priorSearchClick() {
           monthSearch
       ).then(function (response) {
         response.json().then(function (data) {
+            // LEAH
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
@@ -337,6 +338,7 @@ function priorSearchClick() {
 
 // Search History On Page Load (Current Cap: 5)
 for (i = localStorage.length - 1; i > 0 && i > localStorage.length - 6; i--) {
+  // LEAH
   var priorSearchItem = document.createElement("button");
   priorSearchItem.textContent = localStorage.getItem([i]);
   priorSearchContainer.appendChild(priorSearchItem);
@@ -387,6 +389,7 @@ function holidayFetcher() {
             toggleOnInvalidYear();
           } else {
             // Previous Searches Section + Local Storage Adding
+            // LEAH
             var searchItem = document.createElement("button");
             searchItem.textContent =
               yearInput.value +
@@ -399,6 +402,7 @@ function holidayFetcher() {
             localStorage.setItem(x, searchItem.textContent);
             x++;
 
+            // LEAH
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
