@@ -6,10 +6,12 @@ var monthInput = document.querySelector("#months");
 var resultsContainer = document.querySelector("#result-items");
 var resultsHeaderText = document.querySelector("#results-header-txt")
 var priorSearchContainer = document.querySelector("#prev-searches-display");
-var modalContainer = document.querySelector("#error-modal-empty");
-var modalTitle = document.querySelector(".modal-content")
-var modalText = document.querySelector(".modal-text")
-var modalCloseButton = document.querySelector("#modal-OK");
+var modalContainerEmpty = document.querySelector("#error-modal-empty");
+var modalContainerCountry = document.querySelector("#error-modal-country");
+var modalContainerYear = document.querySelector("#error-modal-year");
+var modalEmptyCloseButton = document.querySelector("#modal-empty-OK");
+var modalCountryCloseButton = document.querySelector("#modal-country-OK");
+var modalYearCloseButton = document.querySelector("#modal-year-OK");
 var x = localStorage.length;
 
 // ISO Alpha-2 Codes
@@ -262,26 +264,32 @@ var isoCodeArray = [
   { name: "zimbabwe", code: "zw" },
 ];
 
-// Error Modals
+// Error Modal toggles (on) for each modal
 function toggleOnEmptyField() {
-  modalContainer.classList.add("is-active");
-  modalCloseButton.addEventListener("click", toggleOff);
+  modalContainerEmpty.classList.add("is-active");
+  modalEmptyCloseButton.addEventListener("click", toggleOffEmpty);
 }
 
 function toggleOnInvalidCountry() {
-  modalContainer.classList.add("is-active");
-  modalText.textContent = "Error: country name not recognized; please try again";
-  modalCloseButton.addEventListener("click", toggleOff);
+  modalContainerCountry.classList.add("is-active");
+  modalCountryCloseButton.addEventListener("click", toggleOffCountry);
 }
 
 function toggleOnInvalidYear() {
-  modalContainer.classList.add("is-active");
-  modalText.textContent = "Error: year not on record; please try again";
-  modalCloseButton.addEventListener("click", toggleOff);
+  modalContainerYear.classList.add("is-active");
+  modalYearCloseButton.addEventListener("click", toggleOffYear);
+}
+// modal toggles (off) for each model
+function toggleOffEmpty() {
+  modalContainerEmpty.classList.remove("is-active");
 }
 
-function toggleOff() {
-  modalContainer.classList.remove("is-active");
+function toggleOffCountry() {
+  modalContainerCountry.classList.remove("is-active");
+}
+
+function toggleOffYear() {
+  modalContainerYear.classList.remove("is-active");
 }
 
 // Prior Search
@@ -304,7 +312,10 @@ function priorSearchClick() {
           monthSearch
       ).then(function (response) {
         response.json().then(function (data) {
+
+          
             // LEAH
+            // Previous results area?
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
@@ -312,7 +323,10 @@ function priorSearchClick() {
                 "is-flex-mobile",
                 "columns",
                 "has-text-centered",
-                "is-justify-content-space-evenly"
+                "is-justify-content-space-evenly",
+                "results",
+                "result-items",
+                "result-items::-webkit-scrollbar"
               );
 
               var holidayDateOutput = document.createElement("div");
@@ -341,6 +355,14 @@ function priorSearchClick() {
 for (i = localStorage.length - 1; i > 0 && i > localStorage.length - 6; i--) {
   // LEAH
   var priorSearchItem = document.createElement("button");
+  priorSearchItem.classList.add(
+    "button",
+    "is-normal", 
+    "is-rounded",
+    "is-justify-content-space-between",
+    "is-flex-mobile",
+    "has-text-centered");
+  priorSearchItem.setAttribute("id", "prior-item")
   priorSearchItem.textContent = localStorage.getItem([i]);
   priorSearchContainer.appendChild(priorSearchItem);
   priorSearchItem.addEventListener("click", priorSearchClick);
@@ -385,6 +407,8 @@ function holidayFetcher() {
           monthSearch
       ).then(function (response) {
         response.json().then(function (data) {
+
+          console.log(data);
           // Error Handling
           if (data.response.holidays < 1) {
             toggleOnInvalidYear();
@@ -405,10 +429,11 @@ function holidayFetcher() {
 
             // LEAH
 
-
+            // Current Results Area
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
+              newRow.setAttribute("id", "new-row")
               newRow.classList.add(
                 "is-flex-mobile",
                 "columns",
@@ -421,13 +446,13 @@ function holidayFetcher() {
 
               var holidayDateOutput = document.createElement("div");
               holidayDateOutput.classList.add("level-item");
-              holidayDateOutput.setAttribute("style", "position: -webkit-sticky;position: sticky;top: 0px;")
+              holidayDateOutput.setAttribute("style", "font-size: 15px; position: -webkit-sticky;position: sticky;top: 0px;")
               holidayDateOutput.innerText = data.response.holidays[i].date.iso;
               newRow.appendChild(holidayDateOutput);
 
               var holidayNameOutput = document.createElement("div");
               holidayNameOutput.classList.add("level-item");
-              holidayNameOutput.setAttribute("style", "position: -webkit-sticky;position: sticky;top: 0px;")
+              holidayNameOutput.setAttribute("style", "font-size: 15px; position: -webkit-sticky;position: sticky;top: 0px;max-height:100px; word-wrap:normal;")
               holidayNameOutput.innerText = data.response.holidays[i].name;
               newRow.appendChild(holidayNameOutput);
 
@@ -438,7 +463,13 @@ function holidayFetcher() {
                 data.response.holidays[i].description;
               newRow.appendChild(holidayDetailsOutput);
 
+console.log(newRow);
+
+              if(newRow.innerText !== ""){
               resultsContainer.appendChild(newRow);
+              }else{
+                return
+              }
             }
           }
         });

@@ -1,21 +1,22 @@
 body{
     background-color: #b6c5c2;
-    height: 700px;
+    height: 800px;
     background-image: url("../images/passportstamps.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 
-
 header{
     background-color: #b6c5c2;
+    color: white;
     height: 50px;
     text-align:center;
     font-size: 30px;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
+    text-shadow: 2px 2px 5px black;
 }
 
 #main-container{
@@ -29,7 +30,10 @@ header{
     padding: 20px;
     justify-content: start;
     top: 30px;
-    
+}
+
+#prev-searches-field{
+    padding: 0px;
 }
 
 #form-field, #currency-field{
@@ -38,14 +42,11 @@ header{
 
 #currency-field{
     height: 150px;
+    margin-top: 50px;
 }
 #currency-lbl, #ipt-lbl, #prev-searches-lbl{
     font-size: 20px;
     text-align: center;
-}
-
-#ipt-lbl{
-    margin-bottom: 25px;
 }
 
 #input-field, #currency-display, #prev-searches-display{
@@ -56,12 +57,14 @@ header{
 }
 
 #currency-display{
-    border-style: solid;
-    border-color: #b6c5c2;
     height: 100px;
+    color:white;
+    font-size: 42px;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
 }
- #prev-searches-display, #prev-searches-field{
-    width: 500px;
+ #prev-searches-display, #prev-searches-field, #prev-searches-lbl {
+    width: 300px;
  }
 
 #form-area, #results-container, #prev-display-area{
@@ -79,11 +82,11 @@ header{
     margin-bottom: 0px;
 }
 
-#previous-display-area{
+#prev-display-area{
     padding-top: 0px;
 }
 
-#results-header-txt, .results-header-txt{
+#results-header-txt{
     font-size: 20px;
     text-decoration: underline;
 }
@@ -93,14 +96,22 @@ header{
     margin: 10px 0 0 0;
 }
 
-#result-items, .result-items{
+#result-items{
      margin-top: 10px;
      overflow: scroll;
      max-height: 500px;
      font-size: 20px;
  }
 
-#result-items::-webkit-scrollbar, .result-items::-webkit-scrollbar{
+ #prev-searches-display{
+    height: 300px;
+ }
+
+#prior-item{
+   background-color:#b6c5c2!important;
+}
+
+#result-items::-webkit-scrollbar, #prev-searches-display::-webkit-scrollbar{
     display:none
  }
 
@@ -115,6 +126,8 @@ input, select, #submit-btn{
     margin-bottom: 10px;
     width: 200px;
     height: 35px;
+    background-color:#b6c5c2!important;
+    box-shadow: 5px 5px 5px black!important;
 }
 
 select{
@@ -123,6 +136,7 @@ select{
 
 .label, #results-container, #results-title{
     color:white;
+    text-shadow: 2px 2px 5px black;
 }
 
 #control-box{
@@ -145,6 +159,7 @@ select{
 }
 #modal-text{
     font-size: 20px;
+    text-align: center;
 }
 
 
@@ -163,7 +178,7 @@ select{
     max-width: 350px;
     max-height:50px;
     overflow:hidden;
-    white-space: nowrap;
+    white-space: normal;
     text-align: left;
     display: block;
     text-align: center;
@@ -197,6 +212,9 @@ select{
     
 }
 
+button{
+    box-shadow: 5px 5px 5px black!important;
+}
 a{
     margin: 0px,50px,0px,50px;
 }

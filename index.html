@@ -13,9 +13,7 @@
 <body>
   <a name="top"></a>
     <header class="header">
-        Header
-        <!-- this is a temporary button for testing only --> -->
-        <!-- <button id="temp-btn" class="button" onclick="toggleModal()">toggle modal test</button> -->
+        Holiday Exchange
     </header>
 
     <nav id="navbar" class="is-hidden-widescreen" role="navigation" aria-label="main navigation">
@@ -32,8 +30,8 @@
             <div id="form-field" class="field">
                 <label id="ipt-lbl"class="label">Search for Holidays</label>
                 <div id="control-box" class="control">
-                  <input id="ipt-country" class="input" type="text" placeholder="Enter a Country">
-                  <input id="ipt-year" class="input" type="text" placeholder="Enter a year">
+                  <input id="ipt-country" class="input is-rounded" type="text" placeholder="Enter a Country">
+                  <input id="ipt-year" class="input is-rounded" type="text" placeholder="Enter a year">
                   <label for="months" class="label">Choose a month:</label>
                   <select id="months" name="months" >
                     <option value="1">January</option>
@@ -49,20 +47,20 @@
                     <option value="11">November</option>
                     <option value="12">December</option>
                   </select>
-                  <button id="submit-btn" class="button">Submit</button>
+                  <button id="submit-btn" class="button is-rounded">Submit</button>
                 </div>
               </div>
 
               <!-- currency -->
               <div id="currency-field" class="field">
                 <label id="currency-lbl"class="label"> Current Exchange Rate</label>
-                <div id="currency-display" class="control"></div>
+                <div id="currency-display" class="control"> $1.00</div>
               </div>
           </div>
 
           <!-- Previous Searches area -->
         <div id="prev-display-area" class="is-child box">
-          <div id="prev-searches-field" class="field">
+          <div id="prev-searches-field">
             <label id="prev-searches-lbl"class="label">Previous Searches</label>
             <div id="prev-searches-display" class="control"></div>
           </div>
@@ -86,117 +84,28 @@
             </div>
           </div>
           
-          <!-- results area  the number of results elements are for testing only.  MVP will dynamically create and HTML will be reduced to one non hard coded example-->
-          
           <div id="result-items">
-            <!-- <div id="results" class="is-flex-mobile columns has-text-centered is-justify-content-space-evenly">
-                <div id="date" class="level-item"></div>
-                <div id="holiday" class="level-item"></div>
-                <div id="description" class="level-item"></div>
-            </div> -->
-            <!-- <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-                <div id="date" class="level-item">some text</div>
-                <div id="holiday" class="level-item">some text</div>
-                <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-                <div id="date" class="level-item">some text</div>
-                <div id="holiday" class="level-item">some text</div>
-                <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-                <div id="date" class="level-item">some text</div>
-                <div id="holiday" class="level-item">some text</div>
-                <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-                <div id="date" class="level-item">some text</div>
-                <div id="holiday" class="level-item">some text</div>
-                <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-            </div>
-            <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-            <div id="date" class="level-item">some text</div>
-            <div id="holiday" class="level-item">some text</div>
-            <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-            <div id="date" class="level-item">some text</div>
-            <div id="holiday" class="level-item">some text</div>
-            <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-            <div id="date" class="level-item">some text</div>
-            <div id="holiday" class="level-item">some text</div>
-            <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-            <div id="date" class="level-item">some text</div>
-            <div id="holiday" class="level-item">some text</div>
-            <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-              <div id="date" class="level-item">some text</div>
-              <div id="holiday" class="level-item">some text</div>
-              <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div>
-          <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
-            <div id="date" class="level-item">some text</div>
-            <div id="holiday" class="level-item">some text</div>
-            <div id="description" class="level-item">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor voluptatibus numquam consequuntur nam sint maiores possimus, illum architecto eius adipisci id voluptates facere illo iste qui ratione corporis voluptate saepe.</div>
-          </div> -->
+            
         </div>
       </div>
       
       <div id="error-modal-empty" class="modal">
         <h1 id="modal-title">Input Error</h1>
         <p id="modal-text">Text fields cannot be empty.</p>
-        <button id="modal-OK" class="button" aria-label="close">OK</button>
-    </div>
+        <button id="modal-empty-OK" class="button" aria-label="close">OK</button>
+      </div>
+
+      <div id="error-modal-country" class="modal">
+        <h1 id="modal-title">Country Name Error</h1>
+        <p id="modal-text">Country name not recognized; please try again.</p>
+        <button id="modal-country-OK" class="button" aria-label="close">OK</button>
+      </div>
+
+      <div id="error-modal-year" class="modal">
+        <h1 id="modal-title">No holidays listed for this critera.</h1>
+        <p id="modal-text">Please check year and month selections and try again.</p>
+        <button id="modal-year-OK" class="button" aria-label="close">OK</button>
+      </div>
 
 </body>
 <script src="./script.js"></script>
