@@ -86,11 +86,11 @@
           <!-- results area  the number of results elements are for testing only.  MVP will dynamically create and HTML will be reduced to one non hard coded example-->
           
           <div id="result-items">
-            <div id="results" class="is-flex-mobile columns has-text-centered is-justify-content-space-evenly">
+            <!-- <div id="results" class="is-flex-mobile columns has-text-centered is-justify-content-space-evenly">
                 <div id="date" class="level-item"></div>
                 <div id="holiday" class="level-item"></div>
                 <div id="description" class="level-item"></div>
-            </div>
+            </div> -->
             <!-- <div id="results" class="columns has-text-centered is-justify-content-space-evenly">
               <div id="date" class="level-item">some text</div>
               <div id="holiday" class="level-item">some text</div>
@@ -188,14 +188,17 @@
           </div> -->
         </div>
       </div>
-
+      
+      <!--LEAH-->
       <!-- modal -->
-      <div id="error-modal" class="modal">
-          <h1 id="modal-title" class="title">Title</h1>
-          <p id="modal-text">some error message</p>
-          <button id="modal-OK" class="button" aria-label="close" onclick="toggleModal()">OK</button>
+      <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <p class="modal-text has-text-white">
+          </p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
       </div>
-
 
 </body>
 <script src="./script.js"></script>
