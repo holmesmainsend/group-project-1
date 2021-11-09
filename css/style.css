@@ -40,7 +40,7 @@ header{
     height: 150px;
 }
 #currency-lbl, #ipt-lbl, #prev-searches-lbl{
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -55,7 +55,7 @@ header{
     justify-content: space-evenly;
 }
 
-#currency-display, #prev-searches-display{
+#currency-display{
     border-style: solid;
     border-color: #b6c5c2;
     height: 100px;
@@ -83,24 +83,24 @@ header{
     padding-top: 0px;
 }
 
-#results-header-txt{
+#results-header-txt, .results-header-txt{
     font-size: 20px;
     text-decoration: underline;
 }
 
-#results{
+#results, .results{
     background-color: #8299a8;
     margin: 10px 0 0 0;
 }
 
-#result-items{
+#result-items, .result-items{
      margin-top: 10px;
      overflow: scroll;
      max-height: 500px;
      font-size: 20px;
  }
 
-#result-items::-webkit-scrollbar{
+#result-items::-webkit-scrollbar, .result-items::-webkit-scrollbar{
     display:none
  }
 
@@ -132,16 +132,21 @@ select{
 }
 
 .modal{
-    height: 300px;
+    height: 200px;
     width: 400px;
     position: absolute;
-    justify-content: space-between;
+    justify-content: space-evenly;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #b6c5c2;
     border-radius: 20%;
+    
 }
+#modal-text{
+    font-size: 20px;
+}
+
 
 #modal-OK{
     left: 140px;
@@ -149,8 +154,9 @@ select{
 }
 
 #modal-title{
-    left: 50px;
-    bottom:200px;
+ /* margin:  24px!important; */
+ font-size: 24px!important;
+ font-weight: bold;
 }
 
 .level-item{
@@ -168,11 +174,11 @@ select{
     font-weight:lighter;
 }
 
-#description:hover{
+/* #description:hover, .description:hover{
     overflow: visible;
     white-space: normal;
     max-height:300px;
-}
+} */
 
 @media only screen and (max-device-width: 768px) {
 

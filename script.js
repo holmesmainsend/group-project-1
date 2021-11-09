@@ -4,10 +4,12 @@ var yearInput = document.querySelector("#ipt-year");
 var countryInput = document.querySelector("#ipt-country");
 var monthInput = document.querySelector("#months");
 var resultsContainer = document.querySelector("#result-items");
+var resultsHeaderText = document.querySelector("#results-header-txt")
 var priorSearchContainer = document.querySelector("#prev-searches-display");
-var modalContainer = document.querySelector(".modal");
+var modalContainer = document.querySelector("#error-modal-empty");
+var modalTitle = document.querySelector(".modal-content")
 var modalText = document.querySelector(".modal-text")
-var modalCloseButton = document.querySelector(".modal-close");
+var modalCloseButton = document.querySelector("#modal-OK");
 var x = localStorage.length;
 
 // ISO Alpha-2 Codes
@@ -263,7 +265,6 @@ var isoCodeArray = [
 // Error Modals
 function toggleOnEmptyField() {
   modalContainer.classList.add("is-active");
-  modalText.textContent = "Error: text field cannot be empty";
   modalCloseButton.addEventListener("click", toggleOff);
 }
 
@@ -403,6 +404,8 @@ function holidayFetcher() {
             x++;
 
             // LEAH
+
+
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
@@ -410,21 +413,27 @@ function holidayFetcher() {
                 "is-flex-mobile",
                 "columns",
                 "has-text-centered",
-                "is-justify-content-space-evenly"
+                "is-justify-content-space-evenly",
+                "results",
+                "result-items",
+                "result-items::-webkit-scrollbar"
               );
 
               var holidayDateOutput = document.createElement("div");
               holidayDateOutput.classList.add("level-item");
+              holidayDateOutput.setAttribute("style", "position: -webkit-sticky;position: sticky;top: 0px;")
               holidayDateOutput.innerText = data.response.holidays[i].date.iso;
               newRow.appendChild(holidayDateOutput);
 
               var holidayNameOutput = document.createElement("div");
               holidayNameOutput.classList.add("level-item");
+              holidayNameOutput.setAttribute("style", "position: -webkit-sticky;position: sticky;top: 0px;")
               holidayNameOutput.innerText = data.response.holidays[i].name;
               newRow.appendChild(holidayNameOutput);
 
               var holidayDetailsOutput = document.createElement("div");
               holidayDetailsOutput.classList.add("level-item");
+              holidayDetailsOutput.setAttribute("style", "width: 300px;font-size: 15px; overflow: visible;white-space: normal;max-height:100px;")
               holidayDetailsOutput.innerText =
                 data.response.holidays[i].description;
               newRow.appendChild(holidayDetailsOutput);

@@ -14,7 +14,7 @@
   <a name="top"></a>
     <header class="header">
         Header
-        <!-- this is a temporary button for testing only -->
+        <!-- this is a temporary button for testing only --> -->
         <!-- <button id="temp-btn" class="button" onclick="toggleModal()">toggle modal test</button> -->
     </header>
 
@@ -55,7 +55,7 @@
 
               <!-- currency -->
               <div id="currency-field" class="field">
-                <label id="currency-lbl"class="label">Exchange Rate</label>
+                <label id="currency-lbl"class="label"> Current Exchange Rate</label>
                 <div id="currency-display" class="control"></div>
               </div>
           </div>
@@ -77,9 +77,12 @@
 
             <!-- results header area -->
             <div id="results-header-txt" class="is-flex-mobile columns has-text-centered is-justify-content-space-evenly">
-                <div class="level-item">Date</div>
+                <div >Date</div>
+                <div >Holiday Name</div>
+                <div >Description</div>
+                <!-- <div class="level-item">Date</div>
                 <div class="level-item">Holiday Name</div>
-                <div class="level-item">Description</div>
+                <div class="level-item">Description</div> -->
             </div>
           </div>
           
@@ -189,16 +192,11 @@
         </div>
       </div>
       
-      <!--LEAH-->
-      <!-- modal -->
-      <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <p class="modal-text has-text-white">
-          </p>
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-      </div>
+      <div id="error-modal-empty" class="modal">
+        <h1 id="modal-title">Input Error</h1>
+        <p id="modal-text">Text fields cannot be empty.</p>
+        <button id="modal-OK" class="button" aria-label="close">OK</button>
+    </div>
 
 </body>
 <script src="./script.js"></script>
