@@ -1,6 +1,5 @@
 // global variables
 var countryInput = document.querySelector("#ipt-country");
-var yearInput = document.querySelector("#ipt-year");
 var submitButton = document.querySelector("#submit-btn");
 var currencyDisplay = document.querySelector("#currency-display");
 // country currency array codes
@@ -9,7 +8,7 @@ var countryCurrencyArray = [
     {name: "ailand islands", code: "EUR"},
     {name: "albania", code: "ALL"},
     {name: "algeria", code: "DZD"},
-    {name: "american Samoa", code: "USD"},
+    {name: "american samoa", code: "USD"},
     {name: "andorra", code: "EUR"},
     {name: "angola", code: "AOA"},
     {name: "anguilla", code: "XCD"},
@@ -175,11 +174,11 @@ var countryCurrencyArray = [
     {name: "pitcairn", code: "NZD"},
     {name: "poland", code: "PLN"},
     {name: "portugal", code: "EUR"},
-    {name: "puerto rico", code: "EUR"},
+    {name: "puerto rico", code: "USD"},
     {name: "qatar", code: "QAR"},
     {name: "reunion", code: "EUR"},
     {name: "romania", code: "RON"},
-    {name: "russian federation, the", code: "RUB"},
+    {name: "russia", code: "RUB"},
     {name: "rwanda", code: "RWF"},
     {name: "saint barthelemy", code: "EUR"},
     {name: "saint helena, ascension and tristan da cunha", code: "SHP"},
@@ -247,73 +246,65 @@ var countryCurrencyArray = [
 
 // begins exchange rate function
 function getExchangeRate() {
-    var apiURL = "https://freecurrencyapi.net/api/v2/latest?";
-    var key = "api_key=240ccda0-40bb-11ec-9c8b-d7d462840019";
     // grab data attribute
-    var currencyA = countryInput.value.countryCurrencyArray["united states of america", "USD"];
-    var currencyB = countryInput.value.countryCurrencyArray["australia", "AUD"];
-    // grab html elements
-    targetCurrencyText = document.getElementById("#currency-display");
-
-    // fetch API to change currency rate from American Dollar (USD) to selected currency
-    curl (
-        apiURL + key +
-        "&base_currency=" + currencyA +
-        "&target_currency=" + currencyB
-    ).then(function(response){
-        response.json().then(function(data) {
-            for (i=0; i < data.response.latest.length; i++) {
-                var exchangeMoney = document.createElement("div");
-                exchangeMoney.classList.add(
-                    "is-flex-mobile",
-                    "column",
-                    "has-text-centered",
-                    "is-justify-content-space-evenly"
-                );
-                var exchangeOutput = document.createElement("div");
-                exchangeOutput.classList.add("level-item");
-                exchangeOutput.innerText = data.response.latest[i].code;
-                exchangeMoney.appendChild(exchangeOutput);
-            }
-        });
-    });
+    var countrySearch = countryInput.value.toLowerCase().trim()
+    var currencyUSA = "USD";
     
+    // fetch API to change currency rate from American Dollar (USD) to selected currency
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: "get",
+        headers: myHeaders,
+        redirect: "follow",
         
-}
+    };
 
-console.log(getExchangeRate);
+    if (countrySearch.length < 1) {
+        return(null)
+    } else {
+        var countryCurrency = countryCurrencyArray.find(
+            (element) => element.name === countrySearch
+        );
+
+        if (countryCurrency === void 0) {
+            return(null)
+        } else {
+            var countryFind = countryCurrency.code;
+        
+    
+
+    fetch("https://v1.nocodeapi.com/nmendez4/cx/jCgMPGVVYGVwqNwD/rates/convert?amount=1" + 
+    "&from=" + currencyUSA +
+    "&to=" + countryFind, requestOptions)
+       // .then(response => response.text())
+        .then(function(response){
+            response.json().then(function(data){
+                console.log(data);
+                console.log(data.text)
+                currencyDisplay.innerHTML = data.text
+            })
+        })
+        // .then(result => console.log(result))
+        .catch(error => console.log('error', error)); 
+
+    }
+    
+  } 
+
+
+
+}    
+
+getExchangeRate();
+
 
 submitButton.addEventListener("click", getExchangeRate);
 
-// add function for listing a countries old currency linked to the year search
-function oldExchangeRates() {
-    var apiURL = "https://freecurrencyapi.net/api/v2/historical?apikey=240ccda0-40bb-11ec-9c8b-d7d462840019&base_currency=USD&date_from=2020-10-01&date_to=2021-11-08";
-    var key = "api_key=240ccda0-40bb-11ec-9c8b-d7d462840019";
-    var currencyA = countryInput.value.countryCurrencyArray["united states of america", "USD"];
-    var currencyB = countryInput.value.countryCurrencyArray["australia", "AUD"];
-    var yearInput = document.querySelector("#ipt-year");
+// error codes
+// 400 : Bad request.
+// 403 : Authentication failed
+// 404 : Resource is not found or requested format is incorrect
+// 405 : Method is not allowed.
+// 500 : Server error. We hope you will never see this error.
 
-    curl (
-        apiURL + key +
-        "&base_currency=" + currencyA +
-        "&target_currency" + currencyB +
-        "&date_from=" + yearInput +
-        "&to_date" + "2021-11-08"
-    ).then(function(data) {
-        response.JSON().then(function(data){
-            if (data.response.historical > "2021") {
-                return(null)
-            } else if (data.response.historical < "2021") {
-                return(data)
-            } else {
-                getExchangeRate()
-            };
-        })
-    }) 
-}
-
-// Error Codes
-// 200 = successful request
-// 429 = hit rate limit (5000/day)
-// 404 = a requested resource does not exist
-// 500 = internal server error - let us know: freecurrencyapidonet.net
