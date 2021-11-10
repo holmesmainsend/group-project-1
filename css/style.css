@@ -123,6 +123,7 @@ header{
  #prev-searches-display{
     height: 300px;
     justify-content: start;
+    overflow: scroll;
  }
 
 #prior-item{
@@ -197,7 +198,6 @@ select{
 }
 
 #modal-title{
- /* margin:  24px!important; */
  font-size: 24px!important;
  font-weight: bold;
 }
@@ -221,7 +221,9 @@ select{
 }
 
 @media only screen and (max-device-width: 768px) {
-
+body{
+    height: 2000px;
+}
 
 }.level-item{
     width: 200px;
@@ -234,6 +236,9 @@ select{
     position: sticky;
     top: 50px;
     text-align: center;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-evenly;
     
 }
 
