@@ -118,7 +118,13 @@ header{
    
 }
 
-#result-items::-webkit-scrollbar, #prev-searches-display::-webkit-scrollbar{
+#description{
+    overflow: scroll;
+}
+
+#result-items::-webkit-scrollbar, 
+#prev-searches-display::-webkit-scrollbar,
+#description::-webkit-scrollbar{
     display:none
  }
 
@@ -192,15 +198,7 @@ select{
     width: 300px;
 }
 
-#date, #holiday, #description{
-    font-weight:lighter;
-}
 
-/* #description:hover, .description:hover{
-    overflow: visible;
-    white-space: normal;
-    max-height:300px;
-} */
 
 .button{
     box-shadow: 5px 5px 5px black!important;

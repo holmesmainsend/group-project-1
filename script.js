@@ -321,6 +321,7 @@ function priorSearchClick() {
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
               newRow.setAttribute("class", "new-row");
+             
               newRow.classList.add(
                 "is-flex-mobile",
                 "columns",
@@ -345,7 +346,8 @@ function priorSearchClick() {
 
               var holidayDetailsOutput = document.createElement("div");
               holidayDetailsOutput.classList.add("level-item");
-              holidayDetailsOutput.setAttribute("style", "width: 300px;font-size: 15px; overflow: visible;white-space: normal;max-height:100px;")
+              holidayDetailsOutput.setAttribute("style", "width: 300px;font-size: 15px;white-space: normal;max-height:100px;")
+              holidayDetailsOutput.setAttribute("id", "description")
               holidayDetailsOutput.innerText =
                 data.response.holidays[i].description;
               newRow.appendChild(holidayDetailsOutput);
@@ -430,7 +432,8 @@ function holidayFetcher() {
               "is-justify-content-space-between",
               "is-flex-mobile",
               "has-text-centered");
-            searchItem.textContent =
+              searchItem.setAttribute("id", "prior-item")
+              searchItem.textContent =
               yearInput.value +
               ", " +
               monthInput.value +
