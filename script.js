@@ -198,6 +198,7 @@ var isoCodeArray = [
   { name: "reunion", code: "re" },
   { name: "romania", code: "ro" },
   { name: "russian federation", code: "ru" },
+  { name: "russia", code: "ru" },
   { name: "rwanda", code: "rw" },
   { name: "saint helena", code: "sh" },
   { name: "saint kitts and nevis", code: "kn" },
@@ -319,6 +320,7 @@ function priorSearchClick() {
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
+              newRow.setAttribute("class", "new-row");
               newRow.classList.add(
                 "is-flex-mobile",
                 "columns",
@@ -331,16 +333,19 @@ function priorSearchClick() {
 
               var holidayDateOutput = document.createElement("div");
               holidayDateOutput.classList.add("level-item");
+              holidayDateOutput.setAttribute("style", "font-size: 15px; position: -webkit-sticky;position: sticky;top: 0px;")
               holidayDateOutput.innerText = data.response.holidays[i].date.iso;
               newRow.appendChild(holidayDateOutput);
 
               var holidayNameOutput = document.createElement("div");
               holidayNameOutput.classList.add("level-item");
+              holidayNameOutput.setAttribute("style", "font-size: 15px; position: -webkit-sticky;position: sticky;top: 0px;max-height:100px; word-wrap:normal;")
               holidayNameOutput.innerText = data.response.holidays[i].name;
               newRow.appendChild(holidayNameOutput);
 
               var holidayDetailsOutput = document.createElement("div");
               holidayDetailsOutput.classList.add("level-item");
+              holidayDetailsOutput.setAttribute("style", "width: 300px;font-size: 15px; overflow: visible;white-space: normal;max-height:100px;")
               holidayDetailsOutput.innerText =
                 data.response.holidays[i].description;
               newRow.appendChild(holidayDetailsOutput);
@@ -371,8 +376,10 @@ for (i = localStorage.length - 1; i > 0 && i > localStorage.length - 6; i--) {
 // Erase Items from Last Search
 function cleanser() {
   var levelItems = document.getElementsByClassName("level-item");
+  var rows = document.getElementsByClassName("new-row");
   while (levelItems.length > 0) {
     levelItems[0].parentElement.removeChild(levelItems[0]);
+    rows[0].parentElement.removeChild(rows[0]);
   }
 }
 
@@ -416,6 +423,13 @@ function holidayFetcher() {
             // Previous Searches Section + Local Storage Adding
             // LEAH
             var searchItem = document.createElement("button");
+              searchItem.classList.add(
+              "button",
+              "is-normal", 
+              "is-rounded",
+              "is-justify-content-space-between",
+              "is-flex-mobile",
+              "has-text-centered");
             searchItem.textContent =
               yearInput.value +
               ", " +
@@ -433,7 +447,7 @@ function holidayFetcher() {
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
-              newRow.setAttribute("id", "new-row")
+              newRow.setAttribute("class", "new-row")
               newRow.classList.add(
                 "is-flex-mobile",
                 "columns",

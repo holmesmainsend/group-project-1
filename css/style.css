@@ -8,7 +8,7 @@ body{
 }
 
 header{
-    background-color: #b6c5c2;
+    /* background-color: #b6c5c2; */
     color: white;
     height: 50px;
     text-align:center;
@@ -17,6 +17,11 @@ header{
     position: sticky;
     top: 0px;
     text-shadow: 2px 2px 5px black;
+    background-image: url("../images/passportstamps.jpg");
+    background-size: cover;
+    background-position: 80%;
+    background-attachment: fixed;
+    z-index: 9999;
 }
 
 #main-container{
@@ -54,6 +59,7 @@ header{
     flex-direction: column;
     height: 200px;
     justify-content: space-evenly;
+    
 }
 
 #currency-display{
@@ -109,6 +115,7 @@ header{
 
 #prior-item{
    background-color:#b6c5c2!important;
+   
 }
 
 #result-items::-webkit-scrollbar, #prev-searches-display::-webkit-scrollbar{
@@ -195,6 +202,11 @@ select{
     max-height:300px;
 } */
 
+.button{
+    box-shadow: 5px 5px 5px black!important;
+    
+}
+
 @media only screen and (max-device-width: 768px) {
 
 
@@ -212,9 +224,7 @@ select{
     
 }
 
-button{
-    box-shadow: 5px 5px 5px black!important;
-}
+
 a{
     margin: 0px,50px,0px,50px;
 }
