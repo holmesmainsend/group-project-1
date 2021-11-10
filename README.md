@@ -13,6 +13,7 @@ Also has a built-in display for the current currency exchange rate between the U
 * HTML
 * CSS
 * Bulma
+* Google Fonts
 * JavaScript
 * Calendarific API
 

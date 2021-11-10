@@ -1,3 +1,7 @@
+*{
+    font-family: 'Lemonada', cursive !important;
+}
+
 body{
     background-color: #b6c5c2;
     height: 800px;
@@ -12,7 +16,7 @@ header{
     color: white;
     height: 50px;
     text-align:center;
-    font-size: 30px;
+    font-size: 35px;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
@@ -58,9 +62,9 @@ header{
     display: flex;
     flex-direction: column;
     height: 200px;
-    justify-content: space-evenly;
-    
+    justify-content: space-evenly;    
 }
+
 
 #currency-display{
     height: 100px;
@@ -94,7 +98,13 @@ header{
 
 #results-header-txt{
     font-size: 20px;
-    text-decoration: underline;
+    border-bottom: 3px solid white;
+    margin-bottom: 10px!important;
+}
+
+.new-row{
+    box-shadow: 5px 5px 5px black!important;
+    width: 810px;
 }
 
 #results, .results{
@@ -106,20 +116,23 @@ header{
      margin-top: 10px;
      overflow: scroll;
      max-height: 500px;
+     min-height: 300px;
      font-size: 20px;
  }
 
  #prev-searches-display{
     height: 300px;
+    justify-content: start;
  }
 
 #prior-item{
    background-color:#b6c5c2!important;
+   margin-bottom: 10px;
    
 }
 
 #description{
-    overflow: scroll;
+    overflow: scroll!important;
 }
 
 #result-items::-webkit-scrollbar, 
@@ -168,8 +181,10 @@ select{
     transform: translate(-50%, -50%);
     background-color: #b6c5c2;
     border-radius: 20%;
-    
+    box-shadow: 5px 5px 5px black!important;
 }
+
+
 #modal-text{
     font-size: 20px;
     text-align: center;
