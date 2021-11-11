@@ -1,5 +1,5 @@
 # holiday-exchange
-![Screenshot of Website](Screen Shot 2021-11-10 at 7.20.21 PM.png)
+![Screenshot of Website](holiday-exchange-capture.png)
 
 ## Collaborators
 * https://github.com/LeahFusari
