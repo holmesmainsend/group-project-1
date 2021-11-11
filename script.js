@@ -314,9 +314,6 @@ function priorSearchClick() {
       ).then(function (response) {
         response.json().then(function (data) {
 
-          
-            // LEAH
-            // Previous results area?
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
@@ -329,25 +326,21 @@ function priorSearchClick() {
                 "is-justify-content-space-evenly",
                 "results",
                 "result-items",
-                "result-items::-webkit-scrollbar"
               );
 
               var holidayDateOutput = document.createElement("div");
               holidayDateOutput.classList.add("level-item");
-              holidayDateOutput.setAttribute("style", "font-size: 15px; position: -webkit-sticky;position: sticky;top: 0px;")
               holidayDateOutput.innerText = data.response.holidays[i].date.iso;
               newRow.appendChild(holidayDateOutput);
 
               var holidayNameOutput = document.createElement("div");
               holidayNameOutput.classList.add("level-item");
-              holidayNameOutput.setAttribute("style", "font-size: 15px; position: -webkit-sticky;position: sticky;top: 0px;max-height:100px; word-wrap:normal;")
               holidayNameOutput.innerText = data.response.holidays[i].name;
               newRow.appendChild(holidayNameOutput);
 
               var holidayDetailsOutput = document.createElement("div");
               holidayDetailsOutput.classList.add("level-item");
-              holidayDetailsOutput.setAttribute("style", "width: 300px;font-size: 15px;white-space: normal;max-height:100px;")
-              holidayDetailsOutput.setAttribute("id", "description")
+              holidayDetailsOutput.setAttribute("class", "description")
               holidayDetailsOutput.innerText =
                 data.response.holidays[i].description;
               newRow.appendChild(holidayDetailsOutput);
@@ -360,7 +353,6 @@ function priorSearchClick() {
 
 // Search History On Page Load (Current Cap: 5)
 for (i = localStorage.length - 1; i > 0 && i > localStorage.length - 6; i--) {
-  // LEAH
   var priorSearchItem = document.createElement("button");
   priorSearchItem.classList.add(
     "button",
@@ -423,7 +415,6 @@ function holidayFetcher() {
             toggleOnInvalidYear();
           } else {
             // Previous Searches Section + Local Storage Adding
-            // LEAH
             var searchItem = document.createElement("button");
               searchItem.classList.add(
               "button",
@@ -444,9 +435,6 @@ function holidayFetcher() {
             localStorage.setItem(x, searchItem.textContent);
             x++;
 
-            // LEAH
-
-            // Current Results Area
             // Search Item Rows Generation
             for (i = 0; i < data.response.holidays.length; i++) {
               var newRow = document.createElement("div");
@@ -458,24 +446,21 @@ function holidayFetcher() {
                 "is-justify-content-space-evenly",
                 "results",
                 "result-items",
-                "result-items::-webkit-scrollbar"
               );
 
               var holidayDateOutput = document.createElement("div");
               holidayDateOutput.classList.add("level-item");
-              holidayDateOutput.setAttribute("style", "font-size: 15px; position: -webkit-sticky;position: sticky;top: 0px;")
               holidayDateOutput.innerText = data.response.holidays[i].date.iso;
               newRow.appendChild(holidayDateOutput);
 
               var holidayNameOutput = document.createElement("div");
               holidayNameOutput.classList.add("level-item");
-              holidayNameOutput.setAttribute("style", "font-size: 15px; position: -webkit-sticky;position: sticky;top: 0px;max-height:100px; word-wrap:normal;")
               holidayNameOutput.innerText = data.response.holidays[i].name;
               newRow.appendChild(holidayNameOutput);
 
               var holidayDetailsOutput = document.createElement("div");
               holidayDetailsOutput.classList.add("level-item");
-              holidayDetailsOutput.setAttribute("style", "width: 300px;font-size: 15px; overflow: visible;white-space: normal;max-height:100px;")
+              holidayDetailsOutput.setAttribute("class", "description")
               holidayDetailsOutput.innerText =
                 data.response.holidays[i].description;
               newRow.appendChild(holidayDetailsOutput);

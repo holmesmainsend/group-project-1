@@ -4,7 +4,8 @@
 
 body{
     background-color: #b6c5c2;
-    height: 800px;
+    height: 720px;
+    width:1530px;
     background-image: url("../images/passportstamps.jpg");
     background-size: cover;
     background-position: center;
@@ -94,6 +95,8 @@ header{
 
 #prev-display-area{
     padding-top: 0px;
+    height: 325px;
+    
 }
 
 #results-header-txt{
@@ -105,16 +108,35 @@ header{
 .new-row{
     box-shadow: 5px 5px 5px black!important;
     width: 810px;
+    max-height: 100px;
 }
 
-#results, .results{
+.level-item{
+    /* max-width: 100px; */
+    max-height:100px;
+    overflow:hidden;
+    white-space: normal;
+    text-align: left;
+    display: block;
+    text-align: center;
+    width: 100px;
+    font-size: 15px;
+    word-wrap:normal;
+    white-space: normal;
+}
+
+#results-top{
+    height:10px;
+}
+
+.results{
     background-color: #8299a8;
     margin: 10px 0 0 0;
 }
 
 #result-items{
      margin-top: 10px;
-     overflow: scroll;
+     overflow: scroll!important;
      max-height: 500px;
      min-height: 300px;
      font-size: 20px;
@@ -126,21 +148,25 @@ header{
     overflow: scroll;
  }
 
+ .description{
+    overflow: scroll!important;
+    font-size: 15px;
+    width: 200px;
+}
+
+#result-items::-webkit-scrollbar, 
+#prev-searches-display::-webkit-scrollbar,
+.description::-webkit-scrollbar{
+    display:none
+ }
+
 #prior-item{
    background-color:#b6c5c2!important;
    margin-bottom: 10px;
    
 }
 
-#description{
-    overflow: scroll!important;
-}
 
-#result-items::-webkit-scrollbar, 
-#prev-searches-display::-webkit-scrollbar,
-#description::-webkit-scrollbar{
-    display:none
- }
 
 #ipt-country{
     margin-top: 10px;
@@ -202,7 +228,7 @@ select{
  font-weight: bold;
 }
 
-.level-item{
+/* .level-item{
     max-width: 350px;
     max-height:50px;
     overflow:hidden;
@@ -211,7 +237,7 @@ select{
     display: block;
     text-align: center;
     width: 300px;
-}
+} */
 
 
 
