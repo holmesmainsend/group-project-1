@@ -1,0 +1,274 @@
+*{
+    font-family: 'Lemonada', cursive !important;
+}
+
+body{
+    background-color: #b6c5c2;
+    height: 720px;
+    width:1530px;
+    background-image: url("../images/passportstamps.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header{
+    /* background-color: #b6c5c2; */
+    color: white;
+    height: 50px;
+    text-align:center;
+    font-size: 35px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    text-shadow: 2px 2px 5px black;
+    background-image: url("../images/passportstamps.jpg");
+    background-size: cover;
+    background-position: 80%;
+    background-attachment: fixed;
+    z-index: 9999;
+}
+
+#main-container{
+    height: 600px;
+}
+
+#form-field, #currency-field, #prev-searches-field{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    justify-content: start;
+    top: 30px;
+}
+
+#prev-searches-field{
+    padding: 0px;
+}
+
+#form-field, #currency-field{
+    width: 300px;
+}
+
+#currency-field{
+    height: 150px;
+    margin-top: 50px;
+}
+#currency-lbl, #ipt-lbl, #prev-searches-lbl{
+    font-size: 20px;
+    text-align: center;
+}
+
+#input-field, #currency-display, #prev-searches-display{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-evenly;    
+}
+
+
+#currency-display{
+    height: 100px;
+    color:white;
+    font-size: 22px;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+}
+ #prev-searches-display, #prev-searches-field, #prev-searches-lbl {
+    width: 300px;
+ }
+
+#form-area, #results-container, #prev-display-area{
+    background-color: rgba(130, 153, 168, 0);
+    font-weight: bold;
+}
+
+#form-area, #prev-display-area{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+}
+#form-area{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#prev-display-area{
+    padding-top: 0px;
+    height: 325px;
+    
+}
+
+#results-header-txt{
+    font-size: 20px;
+    border-bottom: 3px solid white;
+    margin-bottom: 10px!important;
+}
+
+.new-row{
+    box-shadow: 5px 5px 5px black!important;
+    width: 810px;
+    max-height: 100px;
+}
+
+.level-item{
+    /* max-width: 100px; */
+    max-height:100px;
+    overflow:hidden;
+    white-space: normal;
+    text-align: left;
+    display: block;
+    text-align: center;
+    width: 100px;
+    font-size: 15px;
+    word-wrap:normal;
+    white-space: normal;
+}
+
+#results-top{
+    height:10px;
+}
+
+.results{
+    background-color: #8299a8;
+    margin: 10px 0 0 0;
+}
+
+#result-items{
+     margin-top: 10px;
+     overflow: scroll!important;
+     max-height: 500px;
+     min-height: 300px;
+     font-size: 20px;
+ }
+
+ #prev-searches-display{
+    height: 300px;
+    justify-content: start;
+    overflow: scroll;
+ }
+
+ .description{
+    overflow: scroll!important;
+    font-size: 15px;
+    width: 200px;
+}
+
+#result-items::-webkit-scrollbar, 
+#prev-searches-display::-webkit-scrollbar,
+.description::-webkit-scrollbar{
+    display:none
+ }
+
+#prior-item{
+   background-color:#b6c5c2!important;
+   margin-bottom: 10px;
+   
+}
+
+
+
+#ipt-country{
+    margin-top: 10px;
+}
+
+input, select, #submit-btn{
+    font-size: 20px;
+    text-align: center;
+    padding: 5px,0,5px,0;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 35px;
+    background-color:#b6c5c2!important;
+    box-shadow: 5px 5px 5px black!important;
+}
+
+select{
+    padding: 0;
+}
+
+.label, #results-container, #results-title{
+    color:white;
+    text-shadow: 2px 2px 5px black;
+}
+
+#control-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal{
+    height: 200px;
+    width: 400px;
+    position: absolute;
+    justify-content: space-evenly;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #b6c5c2;
+    border-radius: 20%;
+    box-shadow: 5px 5px 5px black!important;
+}
+
+
+#modal-text{
+    font-size: 20px;
+    text-align: center;
+}
+
+
+#modal-OK{
+    left: 140px;
+    top: -10px;
+}
+
+#modal-title{
+ font-size: 24px!important;
+ font-weight: bold;
+}
+
+/* .level-item{
+    max-width: 350px;
+    max-height:50px;
+    overflow:hidden;
+    white-space: normal;
+    text-align: left;
+    display: block;
+    text-align: center;
+    width: 300px;
+} */
+
+
+
+.button{
+    box-shadow: 5px 5px 5px black!important;
+    
+}
+
+@media only screen and (max-device-width: 768px) {
+body{
+    height: 2000px;
+}
+
+}.level-item{
+    width: 200px;
+}
+
+#navbar{
+    font-size: 20px;
+    background-color: #8299a8;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
+    text-align: center;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+
+a{
+    margin: 0px,50px,0px,50px;
+}

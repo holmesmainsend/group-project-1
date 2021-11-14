@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lemonada&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Holiday Exchange</title>
+</head>
+<body>
+  <a name="top"></a>
+    <header class="header">
+        Holiday Exchange
+    </header>
+
+    <nav id="navbar" class="is-hidden-widescreen" role="navigation" aria-label="main navigation">
+      <a href="#top">Back to top</a>
+      <a href="#results-top">Results</a>
+    </nav>
+
+    <!-- flex containers -->
+    <div id="main-container" class="tile is-ancestor">
+        <div id="form-area-container"class="is-4 is-vertical is-parent">
+          <div id="form-area" class="is-child box">
+
+              <!-- input form -->
+            <div id="form-field" class="field">
+                <label id="ipt-lbl"class="label">Search for Holidays</label>
+                <div id="control-box" class="control">
+                  <input id="ipt-country" class="input is-rounded" type="text" placeholder="Enter a Country">
+                  <input id="ipt-year" class="input is-rounded" type="text" placeholder="Enter a year">
+                  <label for="months" class="label">Choose a month:</label>
+                  <select id="months" name="months" >
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                  <button id="submit-btn" class="button is-rounded">Submit</button>
+                </div>
+              </div>
+
+              <!-- currency -->
+              <div id="currency-field" class="field">
+                <label id="currency-lbl"class="label"> Current Exchange Rate</label>
+                <div id="currency-display" class="control"></div>
+              </div>
+          </div>
+
+          <!-- Previous Searches area -->
+        <div id="prev-display-area" class="is-child box">
+          <div id="prev-searches-field">
+            <label id="prev-searches-lbl"class="label">Previous Searches</label>
+            <div id="prev-searches-display" class="control"></div>
+          </div>
+        </div>
+      </div>
+
+        <!-- flex containers -->
+      <div id="results-top" class="tile is-parent">
+        <div id="results-container"class="tile is-child box ">
+          <div id="results-header-container">
+              <h1 id="results-title" class="title has-text-centered">Holidays</h1>
+
+            <!-- results header area -->
+            <div id="results-header-txt" class="is-flex-mobile columns has-text-centered is-justify-content-space-evenly">
+                <div >Date</div>
+                <div >Holiday Name</div>
+                <div >Description</div>
+            </div>
+          </div>
+          
+          <div id="result-items">
+            
+        </div>
+      </div>
+      
+      <div id="error-modal-empty" class="modal">
+        <h1 id="modal-title">Input Error</h1>
+        <p id="modal-text">Text fields cannot be empty.</p>
+        <button id="modal-empty-OK" class="button" aria-label="close">OK</button>
+      </div>
+
+      <div id="error-modal-country" class="modal">
+        <h1 id="modal-title">Country Name Error</h1>
+        <p id="modal-text">Country name not recognized; please try again.</p>
+        <button id="modal-country-OK" class="button" aria-label="close">OK</button>
+      </div>
+
+      <div id="error-modal-year" class="modal">
+        <h1 id="modal-title">No holidays listed for this critera.</h1>
+        <p id="modal-text">Please check year and month selections and try again.</p>
+        <button id="modal-year-OK" class="button" aria-label="close">OK</button>
+      </div>
+
+</body>
+<script src="./script.js"></script>
+<script src="./currency.js"></script>
+
+
+</html>
