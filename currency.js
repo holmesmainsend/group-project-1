@@ -2,6 +2,7 @@
 var countryInput = document.querySelector("#ipt-country");
 var submitButton = document.querySelector("#submit-btn");
 var currencyDisplay = document.querySelector("#currency-display");
+var priorSearchContainer = document.querySelector("#prev-searches-display");
 // country currency array codes
 var countryCurrencyArray = [
     {name: "afghanistan", code : "AFN"},
@@ -260,6 +261,14 @@ function getExchangeRate() {
         
     };
 
+    for (i = localStorage.length -1; i > 0 && i > localStorage.length - 6; i--) {
+        var priorSearch = document.createElement("button");
+        priorSearch.setAttribute("id", "prior-item")
+        priorSearch.textContent = localStorage.getItem([i]);
+        priorSearch.appendChild(priorSearch);
+        priorSearch.addEventListener("click", priorSearch)
+    }
+
     if (countrySearch.length < 1) {
         return(null)
     } else {
@@ -280,8 +289,8 @@ function getExchangeRate() {
        // .then(response => response.text())
         .then(function(response){
             response.json().then(function(data){
-                console.log(data);
-                console.log(data.text)
+                //console.log(data);
+                // console.log(data.text)
                 currencyDisplay.innerHTML = data.text
             })
         })
@@ -292,9 +301,9 @@ function getExchangeRate() {
     
   } 
 
-
-
 }    
+
+// add local storage
 
 getExchangeRate();
 
@@ -307,4 +316,3 @@ submitButton.addEventListener("click", getExchangeRate);
 // 404 : Resource is not found or requested format is incorrect
 // 405 : Method is not allowed.
 // 500 : Server error. We hope you will never see this error.
-
