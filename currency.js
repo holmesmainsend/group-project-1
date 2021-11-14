@@ -1,3 +1,4 @@
+// currency.js by Nicholas Mendez
 // global variables
 var countryInput = document.querySelector("#ipt-country");
 var submitButton = document.querySelector("#submit-btn");
@@ -261,13 +262,13 @@ function getExchangeRate() {
         
     };
 
-    for (i = localStorage.length -1; i > 0 && i > localStorage.length - 6; i--) {
-        var priorSearch = document.createElement("button");
-        priorSearch.setAttribute("id", "prior-item")
-        priorSearch.textContent = localStorage.getItem([i]);
-        priorSearch.appendChild(priorSearch);
-        priorSearch.addEventListener("click", priorSearch)
-    }
+   // for (i = localStorage.length -1; i > 0 && i > localStorage.length - 6; i--) {
+       // var priorSearch = document.createElement("button");
+       // priorSearch.setAttribute("id", "prior-item")
+       // priorSearch.textContent = localStorage.getItem([i]);
+      //  priorSearch.appendChild(priorSearch);
+      //  priorSearch.addEventListener("click", priorSearch)
+  //  }
 
     if (countrySearch.length < 1) {
         return(null)
